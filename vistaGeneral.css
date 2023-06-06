@@ -1,0 +1,758 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-style: none;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.sinborde:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-image: url(./Assets/fondoMain.jpg);
+    background-repeat: no-repeat;
+    background-position-y: 59%;
+    background-position-x:50%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color: hsl(0, 0%, 0%);
+    height: 10vh;
+    padding: 0 30px 0 30px !important
+}
+
+.buttonNav {
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+    cursor: pointer;
+}
+
+.buttonNav:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.nav span {
+    color: #fff;
+    font-family: Orbitron;
+    font-size: 40px;
+    font-weight: 800;
+    animation: fluido 12s ease-in-out infinite;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 35%, rgb(59, 255, 91) 50%, rgba(255,255,255,1) 65%);
+        background-size: 600%;
+        -webkit-background-clip: text;
+          background-clip: text;
+        -webkit-text-fill-color: transparent;
+        cursor: default;
+}
+
+
+.lupaPng {
+    height: 30px;
+}
+.seccionBusqueda {
+    background-image: url(./Assets/wave.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    height: 20vh;
+}
+.busqueda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2%;
+    padding-bottom: 100px;
+
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: calc(100% - 70%);
+    background-color: rgb(29, 29, 29);
+    border-radius: 30px;
+    position: relative;
+    z-index: 100;
+}
+.search-input {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 8px 40px 8px 20px;
+    border: none;
+    box-shadow: 0 5px 8px 3px rgba(0, 0, 0, .5);
+    justify-content: space-between;
+    position: relative;
+    border-radius: 0px;
+}
+.search-input:focus {
+    outline: none;
+}
+.search-input:hover {
+    box-shadow: 0 5px 8px 3px rgba(73, 209, 73, .9);
+    transition: 1s; 
+}
+.search-button {
+    position: absolute;
+    right: -0.5%;
+    top: 12%;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background:none; 
+}
+
+.contenedor {
+    width: 90%;
+    margin: auto;
+} 
+
+.seccionCarrousel {
+    background-color: black;
+    min-height: 70vh;
+    position: relative;
+}
+/* ---- ---- ---- CONTENEDOR TITULO y CONTROLES ---- ---- ---- */
+
+.contenedorTituloControles {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    align-items: center;
+}
+
+.contenedorTituloControles2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.contenedorTituloControles2 a {
+    cursor: pointer;
+}
+
+.contenedorTituloControles2 a:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.contenedorTituloControles2 a img{
+    width: 25px;
+    filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(235deg) brightness(99%) contrast(105%);
+}
+
+.contenedorTituloControles2 h3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.contenedorTituloControles2 h3:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.contenedorTituloControles .indicadores button {
+    background: #fff;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    border-radius: 100%;
+}
+
+.contenedorTituloControles .indicadores button:hover,
+.contenedorTituloControles .indicadores button.activo {
+    background: rgb(76, 212, 117);
+}
+
+
+/* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS ---- ---- ---- */
+
+.videosPrincipal {
+    margin-bottom: 0;
+}
+
+.videosPrincipal .contenedorPrincipal {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.flechasimg {
+    width: 3vw;
+}
+
+.videosPrincipal .contenedorPrincipal .flecha-izquierda, 
+.videosPrincipal .contenedorPrincipal .flecha-derecha {
+    position: relative;
+    border: none;
+    height: 50%;
+    top:calc(50% - 20%); 
+    cursor: pointer;
+    transition: .2s ease all;
+    filter: invert(100%) sepia(6%) saturate(408%) hue-rotate(248deg) brightness(121%) contrast(100%);
+}
+
+.videosPrincipal .contenedorPrincipal .flecha-izquierda {
+    left: 0;
+}
+.videosPrincipal .contenedorPrincipal .flecha-derecha {
+    right: 0;
+}
+
+.videosPrincipal .contenedorPrincipal .flecha-izquierda:hover, 
+.videosPrincipal .contenedorPrincipal .flecha-derecha:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+/* ---- ---- ---- Carousel ---- ---- ---- */
+.video {
+    position: relative;
+    width: 100%;
+}
+.videoPlay {
+    height: 4vw;
+    position: absolute;
+    box-shadow: none !important;
+    cursor: pointer;
+    top: calc(100% - 70%);
+    left: calc(100% - 60%);
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+    display: none;
+}
+
+.cruz {
+    position: absolute;
+    min-width: fit-content;
+    height: 2vw;
+    box-shadow: none !important;
+    left: 80%;
+    top: 10%;
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+    display: none;
+    cursor: pointer;
+}
+
+.flechaOtra {
+    position: absolute;
+    height: 2vw;
+    box-shadow: none !important;
+    left: 78%;
+    top: 65%;
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+    display: none;
+    cursor: pointer;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel {
+    position: relative;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-left: 10px;
+    justify-content: space-between;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video {
+    min-width: 20%;
+    transition: .3s ease all;
+    padding: 15px;
+}
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover {
+    transform: scale(1.1);
+    transform-origin: center;
+    z-index: 100;
+    color: rgb(76, 212, 117);
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay {
+    display: flex;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz {
+    display: flex;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra {
+    display: flex;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video .imgVideo {
+    width: 100%;
+    vertical-align: top;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover img{
+    box-shadow: 0px 0px 10px rgba(76, 212, 117, 0.7);
+}
+
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: poppins;
+    font-weight: 400;
+    margin-top: 5px;
+    cursor: pointer;
+    flex-direction: column;
+    color: #fff;
+}
+
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video span:hover {
+    text-shadow: 1px 1px 10px #39FF14;
+}
+
+
+/* ---- ---- ---- CONTENEDOR TITULO y CONTROLES 22222222222222222222222 ---- ---- ---- */
+
+.contenedorTituloControles2 {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.contenedorTituloControles22 {
+    display: flex;
+    align-content: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.contenedorTituloControles22 a img{
+    width: 25px;
+}
+
+
+.contenedorTituloControles2 .indicadores2 button {
+    background: #fff;
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+    margin-right: 2px;
+    border-radius: 100%;
+}
+
+.contenedorTituloControles2 .indicadores2 button:hover,
+.contenedorTituloControles2 .indicadores2 button.activo {
+    background: rgb(76, 212, 117);
+}
+
+
+/* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS   2222222222222222 ---- ---- ---- */
+
+.videosPrincipal2 {
+    margin-bottom: 70px;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.flechasimg2 {
+    width: 30px;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda, 
+.videosPrincipal2 .contenedorPrincipal2 .flecha-derecha {
+    position: relative;
+    border: none;
+    height: 50%;
+    top:calc(50% - 20%); 
+    cursor: pointer;
+    transition: .2s ease all;
+    filter: invert(100%) sepia(6%) saturate(408%) hue-rotate(248deg) brightness(121%) contrast(100%);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda:hover, 
+.videosPrincipal2 .contenedorPrincipal2 .flecha-derecha:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda {
+    left: 0;
+}
+.videosPrincipal2 .contenedorPrincipal2 .flecha-derecha {
+    right: 0;
+}
+
+/* ---- ---- ---- Carousel   2222222222 ---- ---- ---- */
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 {
+    position: relative;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-left: 10px;
+    justify-content: space-between;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video {
+    min-width: 20%;
+    transition: .3s ease all;
+    padding: 15px;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover {
+    transform: scale(1.1);
+    transform-origin: center;
+    z-index: 100;
+    color: rgb(76, 212, 117);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay {
+    display: flex;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz {
+    display: flex;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra {
+    display: flex;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video .imgVideo {
+    width: 100%;
+    vertical-align: top;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover img{
+    box-shadow: 0px 0px 15px rgba(76, 212, 117, 0.3);
+}
+
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: poppins;
+    font-weight: 400;
+    margin-top: 5px;
+    cursor: pointer;
+    flex-direction: column;
+    color: #fff;
+}
+
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video span:hover {
+    text-shadow: 1px 1px 10px #39FF14;
+}
+
+/* ---- ---- ---- CARPETA ICONO ---- ---- ---- */
+
+.buttonCarpeta {
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+    cursor: pointer;
+}
+
+.buttonCarpeta:hover {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+/* ---- ---- ---- SPAN ULTIMOS VIDEOS ---- ---- ---- */
+
+.ultimosVideos {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.ultimosVideos:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.spanUltimosVideos {
+    color: #fff;
+    font-family: poppins;
+}
+
+.flechaAbajo {
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+}
+
+/* ---- ---- ---- GRid BUSQUEDA ---- ---- ---- */
+
+
+.seccionGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gridBusqueda {
+    display: grid;
+    position: absolute;
+    background-color: #000000;
+    box-shadow: 5px 5px 15px rgba(76, 212, 117, 0.3);;
+    width: 100%;
+    height: 90vh;
+    top: 10vh;
+    padding: 12vh 100px 20px 100px;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 30% 30% 30%;
+    gap: 10px;
+}
+
+.divGrid {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 90%;
+}
+
+.divGrid img {
+    width: 95%;
+    border-radius: 10px;
+}
+
+.divGrid button {
+    display: flex;
+    align-self: baseline;
+    justify-self: start;
+    cursor: pointer;
+    width: 2.5vw;
+}
+
+.iconListR {
+    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+}
+
+.iconListR img {
+    width: 100%;
+}
+
+.divGrid img {
+    margin-bottom: 5px;
+}
+
+.divGrid h3, span {
+    color: #fff;
+    font-family: poppins;
+    font-size: 0.8rem;
+    margin: 0 !important;
+}
+
+
+.buttonCerrarBusqueda {
+    width: fit-content;
+    height: fit-content;
+    justify-self: end;
+    cursor: pointer;
+    position: absolute;
+    align-self: flex-start;
+    top: 3%;
+    right: 3%;
+}
+
+.cruzBusqueda { 
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+}
+
+.cruzBusqueda:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.buttonCirc {
+    cursor: pointer;
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+}
+
+.filtroGris {
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
+}
+
+.buttonCirc:hover { 
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.buttonsGrid {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    grid-column-start: 3;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/*  ---- ---- SECCION LISTA REPRO ---- ----  */
+.seccionListaRepro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listaRepro {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 30vw;
+        height: 80vh;
+        top: 10vh;
+        z-index: 1500;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        background: linear-gradient(225deg, #030303f3, #434343);
+        box-shadow:  -6px 6px 12px #33aa3980,
+             6px -6px 12px #33aa3980;
+}
+
+.gridListaRepro {
+    display: grid;
+    width: 90%;
+    height: 90%;
+    padding: 0% 5%;
+    grid-template-rows: 5% calc(95% / 4) calc(95% / 4) calc(95% / 4) calc(95% / 4);
+    gap: 15px;
+}
+
+.gridListaRepro span {
+    font-family: poppins;
+    font-size: 1rem;
+    justify-self: center;
+    align-self: center;
+    margin-top: 20px !important;
+    cursor: default;
+}
+
+.divLista {
+    display: grid;
+    grid-template-columns: 10% 65% 20%;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-items: center;
+    border-radius: 10px;
+}
+
+.divLista img {
+    align-self: center;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.divLista button {
+    cursor: default;
+    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
+}
+
+.divLista button:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.controlesList {
+    display: grid;
+    align-items: center;
+    gap: 20%;
+}
+
+.controlesList span {
+    font-size: 80%;
+}
+
+.controlesListButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.controlesListButtons button:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.blurListaRepro {
+    position: absolute;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    backdrop-filter: blur(5px);
+}
+
+.divLista.dragging {
+    box-shadow:  -6px 6px 12px #33aa3980,
+             6px -6px 12px #33aa3980;
+}
+
+.divLista .dragging:where( .controlesList , img , button img) {
+    opacity: 0;
+}
+
+/*  ---- ---- ANIMACION ---- ----  */
+
+@keyframes fluido {
+    0% { background-position: 0 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0 50% }
+}
