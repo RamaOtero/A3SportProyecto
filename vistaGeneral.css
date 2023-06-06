@@ -723,10 +723,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer !important;
 }
 
 .controlesListButtons button:hover {
+    cursor: pointer !important;
     filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
 }
 
