@@ -187,35 +187,56 @@ const closeContenedor = () => {
 
 cerrarListaRepro.addEventListener("click", () => closeContenedor());
 
-// ---- ---- LISTA DE REPRODUCCION  CERRAR FUERA---- ----
+// ---- ---- LISTA DE REPRODUCCION  DRAG ORDER ---- ----
 
-
-
-
-// ---- ---- LISTA DE REPRODUCCION  DRAGG ORDER---- ----
-
-divLista.forEach(divLista => {
-    divLista.addEventListener("dragstart", () => {
-        setTimeout(() => divLista.classList.add("dragging"), 0)
-    })
-    divLista.addEventListener("dragend", () => divLista.classList.remove("dragging"));
+Sortable.create(gridListaRepro, {
+    animation:150,
+    chosenClass: "seleccionado",
+    ghostClass: "fantasma",
+    dragClass: "drag",
 })
 
-const initgridListaRepro = (e) => {
-    e.preventDefault()
 
-    const draggingItem = document.querySelector(".dragging")
+// ---- ---- VIDEO PLAYER ---- ----
 
-    let siblings = [...gridListaRepro.querySelectorAll(".divLista:not(.dragging)")];
+const video = document.querySelector(".videoMain");
+const playButton = document.querySelector('.playVideo');
+const imgPlayButton = document.querySelector('.imgPlayButton');
+const progressBar = document.querySelector('.progressVideo');
+const timestamp = document.querySelector(".timestamp")
 
-    let nextSibling = siblings.find(sibling => {
-        return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
-    });
-
-    gridListaRepro.insertBefore( draggingItem, nextSibling)
-
-console.log(nextSibling);
+function playPauseVideo() {
+    video[video.paused ? 'play' : 'pause']()
+    playButtonToggleIcon()
 }
 
-gridListaRepro.addEventListener("dragover", initgridListaRepro);
-gridListaRepro.addEventListener("dragenter", e => e.preventDefault());
+function playButtonToggleIcon() {
+    if(video.paused) {
+        imgPlayButton.setAttribute("src", "./Assets/playSVG.svg")
+    } else {
+        imgPlayButton.setAttribute("src", "./Assets/pause.svg")
+    }
+}
+
+function setVideoProgress () {
+    video.currentTime = Number((progressBar.value * video.duration) / 100)
+}
+
+function updateVideoProgress() {
+    progressBar.value = Number((video.currentTime / video.duration) * 100)
+    let minutes = Math.floor(video.currentTime / 60)    
+    let seconds = Math.floor(video.currentTime % 60)
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    if (seconds < 10) {
+        seconds = "0" + seconds
+    }
+    timestamp.textContent = `${minutes}:${seconds}`
+}
+
+
+playButton.addEventListener("click", playPauseVideo)
+video.addEventListener("click", playPauseVideo)
+progressBar.addEventListener("change", setVideoProgress)
+video.addEventListener("timeupdate", updateVideoProgress)

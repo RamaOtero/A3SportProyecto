@@ -603,17 +603,16 @@ body {
 
 
 .buttonCerrarBusqueda {
-    width: fit-content;
-    height: fit-content;
     justify-self: end;
     cursor: pointer;
     position: absolute;
     align-self: flex-start;
-    top: 3%;
     right: 3%;
+    top: 2%;
 }
 
 .cruzBusqueda { 
+    width:100%;
     filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
 }
 
@@ -655,16 +654,24 @@ body {
 .listaRepro {
         position: absolute;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         width: 30vw;
-        height: 80vh;
-        top: 10vh;
+        height: 90%;
+        top: 5vh;
         z-index: 1500;
         backdrop-filter: blur(10px);
         border-radius: 15px;
-        background: linear-gradient(225deg, #030303f3, #434343);
-        box-shadow:  -6px 6px 12px #33aa3980,
-             6px -6px 12px #33aa3980;
+        background: linear-gradient(225deg, #1d1d1df8, #000000);
+        box-shadow:  -6px 6px 12px #030803cc,
+             6px -6px 12px #000000e8;
+}
+
+.listaRepro span {
+ font-size: 0.9vw;
+ text-align: center;
+ padding-bottom: 10px;
 }
 
 .gridListaRepro {
@@ -672,16 +679,38 @@ body {
     width: 90%;
     height: 90%;
     padding: 0% 5%;
-    grid-template-rows: 5% calc(95% / 4) calc(95% / 4) calc(95% / 4) calc(95% / 4);
     gap: 15px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  
+  ::-webkit-scrollbar-track {
+    background: #333333;
+    border-radius: 5px
+  }
+   
+  
+  ::-webkit-scrollbar-thumb {
+    background: #289130;
+    border-radius: 50px;
+  }
+  
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #51d162;
+  }
+  
 
 .gridListaRepro span {
     font-family: poppins;
     font-size: 1rem;
     justify-self: center;
     align-self: center;
-    margin-top: 20px !important;
     cursor: default;
 }
 
@@ -692,21 +721,35 @@ body {
     align-items: center;
     justify-items: center;
     border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
 }
 
-.divLista img {
+.videoPoster {
     align-self: center;
     width: 80%;
     border-radius: 10px;
 }
 
 .divLista button {
-    cursor: default;
-    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
+    cursor: pointer;
 }
 
 .divLista button:hover {
     filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.divLista button img {
+    width: 60%;
+}
+
+.divLista.seleccionado {
+    box-shadow:  -3px 6px 6px #0000003d,
+             6px -3px 6px #113a133a;
+}
+
+.divLista.drag {
+    opacity: 0;
 }
 
 .controlesList {
@@ -723,6 +766,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+}
+
+.controlesListButtons button img {
+    width: 100%;
 }
 
 .controlesListButtons button:hover {
@@ -737,16 +785,64 @@ body {
     height: 100vh;
     top: 0;
     right: 0;
-    backdrop-filter: blur(5px);
+    backdrop-filter: grayscale(100%);
 }
 
-.divLista.dragging {
-    box-shadow:  -6px 6px 12px #33aa3980,
-             6px -6px 12px #33aa3980;
+/*  ---- ---- Seccion VIDEO ---- ----  */
+
+.seccionVideoVista {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
+    top: 10%;
+    z-index: 500;
+    background-color: #000000;
 }
 
-.divLista .dragging:where( .controlesList , img , button img) {
-    opacity: 0;
+
+.videoVista {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.videoVista {
+    width: 100vw;
+    cursor: pointer;
+}
+
+.videoMain {
+    width: 1280px;
+}
+
+.controlVideo {
+    position: absolute;
+    bottom: 0;
+    width: 1280px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background-color: #2525258e;
+}
+
+.controlVideo img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.progressVideo {
+    flex-grow: 1;
+}
+
+.timestamp {
+    color: #fff;
+   font-size: 1rem;
 }
 
 /*  ---- ---- ANIMACION ---- ----  */
