@@ -67,9 +67,9 @@ body {
     height: 30px;
 }
 .seccionBusqueda {
-    background-image: url(./Assets/wave.svg);
+    background-image: url(./AssetsA3/wave.svg);
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position-y: 60%;
     background-size: cover;
     height: 20vh;
 }
@@ -104,13 +104,13 @@ body {
     box-shadow: 0 5px 8px 3px rgba(0, 0, 0, .5);
     justify-content: space-between;
     position: relative;
-    border-radius: 0px;
+    border-radius: 10px;
 }
 .search-input:focus {
     outline: none;
 }
 .search-input:hover {
-    box-shadow: 0 5px 8px 3px rgba(73, 209, 73, .9);
+    box-shadow: 0 5px 8px 3px rgba(73, 209, 73, 0.384);
     transition: 1s; 
 }
 .search-button {
@@ -130,9 +130,10 @@ body {
 } 
 
 .seccionCarrousel {
-    background-color: black;
+    background-color: rgb(114, 115, 118);
     min-height: 70vh;
     position: relative;
+    padding-top: 2%;
 }
 /* ---- ---- ---- CONTENEDOR TITULO y CONTROLES ---- ---- ---- */
 
@@ -148,6 +149,7 @@ body {
     align-items: center;
     gap: 10px;
     justify-content: center;
+    margin-left: 5%;
 }
 
 .contenedorTituloControles2 a {
@@ -155,24 +157,25 @@ body {
 }
 
 .contenedorTituloControles2 a:hover {
-    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .contenedorTituloControles2 a img{
     width: 25px;
-    filter: invert(100%) sepia(0%) saturate(7488%) hue-rotate(235deg) brightness(99%) contrast(105%);
+    
 }
 
 .contenedorTituloControles2 h3 {
     color: #ffffff;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
+    font-weight: 500;
     cursor: pointer;
+    margin: 0;
 }
 
 .contenedorTituloControles2 h3:hover {
-    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .contenedorTituloControles .indicadores button {
@@ -234,6 +237,7 @@ body {
     position: relative;
     width: 100%;
 }
+
 .videoPlay {
     height: 4vw;
     position: absolute;
@@ -241,7 +245,6 @@ body {
     cursor: pointer;
     top: calc(100% - 70%);
     left: calc(100% - 60%);
-    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
     display: none;
 }
 
@@ -252,7 +255,6 @@ body {
     box-shadow: none !important;
     left: 80%;
     top: 10%;
-    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
     display: none;
     cursor: pointer;
 }
@@ -263,9 +265,11 @@ body {
     box-shadow: none !important;
     left: 78%;
     top: 65%;
-    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
     display: none;
     cursor: pointer;
+    background-color: #fff;
+    background-size: contain;
+    border-radius: 100px;
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel {
@@ -300,7 +304,7 @@ body {
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz {
@@ -312,11 +316,11 @@ body {
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video .imgVideo {
@@ -504,16 +508,28 @@ body {
 
 /* ---- ---- ---- CARPETA ICONO ---- ---- ---- */
 
-.buttonCarpeta {
+.fondoCarpeta {
     position: absolute;
-    right: 1%;
-    bottom: 1%;
+    right: 0%;
+    bottom: 0%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 21%, rgba(62,62,62,1) 100%);
+    width: 90px;
+    height: 55px;
+    border-radius: 30px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonCarpeta {
     filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
     cursor: pointer;
+    width: 40px;
 }
 
 .buttonCarpeta:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(3036%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 /* ---- ---- ---- SPAN ULTIMOS VIDEOS ---- ---- ---- */
 
@@ -523,7 +539,10 @@ body {
     justify-content: start;
     cursor: pointer;
     width: fit-content;
+    gap: 10px;
+    margin-left: 5%;
 }
+
 
 .ultimosVideos:hover {
     filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
@@ -532,11 +551,10 @@ body {
 .spanUltimosVideos {
     color: #fff;
     font-family: poppins;
+    font-weight: 500;
+    font-size: 20px;
 }
 
-.flechaAbajo {
-    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
-}
 
 /* ---- ---- ---- GRid BUSQUEDA ---- ---- ---- */
 
