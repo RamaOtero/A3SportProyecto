@@ -611,6 +611,7 @@ body {
 .divGrid img {
     width: 95%;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .divGrid button {
@@ -1027,6 +1028,64 @@ body {
 .volverAVideosVista:hover span {
     color: #00FF00;
 }
+
+.bttnTachoBlanco {
+    position: absolute;
+    left: 0;
+    bottom: 7%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 21%, rgba(62,62,62,1) 100%);
+    width: 90px;
+    height: 60px;
+    border-radius: 0 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.bttnTachoCirculo {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #000000;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    box-shadow: 0 0 10px 0 #00FF00;
+}
+
+.bttnTachoBlanco img {
+    width: 25px;
+}
+
+.bttnAgregarListaRojo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #AD1A1C;
+    border-radius: 10px;
+    gap: 3px;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+.bttnAgregarListaRojo:hover {
+    background-color: #591212;
+}
+
+.bttnAgregarListaRojo:focus {
+    background-color: #4B4B4D;
+}
+.bttnAgregarListaRojo:focus span {
+    color: #000000;
+}
+
+.bttnAgregarListaRojo:focus img {
+    filter: invert(100%) sepia(94%) saturate(22%) hue-rotate(63deg) brightness(100%) contrast(107%);
+}
+
+
 
 /*  ---- ---- ANIMACION ---- ----  */
 

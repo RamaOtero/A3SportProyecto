@@ -126,6 +126,19 @@ buttonPlayList.forEach((buttonPlayList) => {
     })
 })
 
+// ---- ----  VIDEO GRID BUSQUEDA  ---- ----
+const imgGridBusqueda = document.querySelectorAll('.imgGridBusqueda')
+const anteriorBttn = document.querySelector('.anteriorBttn')
+const siguienteBttn = document.querySelector('.siguienteBttn')
+
+imgGridBusqueda.forEach((imgGridBusqueda) => {
+    imgGridBusqueda.addEventListener("click", () =>{
+        videoVentana.classList.remove("hidden");
+        anteriorBttn.classList.add("hidden");
+        siguienteBttn.classList.add("hidden");
+        bttnAgregarListaRojo.classList.remove("hidden");
+    })
+})
 
 // ---- ---- LISTA DE REPRODUCCION ---- ----
 
@@ -224,15 +237,34 @@ video.addEventListener("timeupdate", updateVideoProgress)
 
 const videoPlay = document.querySelectorAll(".videoPlay")
 const videoImg = document.querySelectorAll(".imgVideo")
+const bttnAgregarListaRojo = document.querySelector(".bttnAgregarListaRojo")
 
 videoPlay.forEach((videoPlay) => {
     videoPlay.addEventListener("click", () => {
         videoVentana.classList.remove("hidden");
+        anteriorBttn.classList.remove("hidden");
+        siguienteBttn.classList.remove("hidden");
+        bttnAgregarListaRojo.classList.add("hidden");
     })
 })
 
 videoImg.forEach((videoImg) => {
     videoImg.addEventListener("click", () => {
         videoVentana.classList.remove("hidden");
+        anteriorBttn.classList.remove("hidden");
+        siguienteBttn.classList.remove("hidden");
+        bttnAgregarListaRojo.classList.add("hidden");
     })
+})
+
+// --- ---- Bttn Volumen ---- ----
+
+const volumenBttn = document.querySelector("#volumenBttn");
+
+volumenBttn.addEventListener("click", (e) => { 
+    if (e.target.src.match("./AssetsA3/VideosIcons/volumen.svg")) {
+        volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumenMute.svg")
+    } else {
+        volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumen.svg")
+    }
 })
