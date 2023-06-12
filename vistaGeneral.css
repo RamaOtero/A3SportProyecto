@@ -1,4 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: 'Handel';
+    src: url('./AssetsA3/Fonts/7294-fontps.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'HandelBol';
+    src: url('./AssetsA3/Fonts/HandelGotDBol.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }
 
 * {
     margin: 0;
@@ -23,10 +35,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    background-image: url(./Assets/fondoMain.jpg);
-    background-repeat: no-repeat;
-    background-position-y: 59%;
-    background-position-x:50%;
 }
 
 .nav {
@@ -49,7 +57,7 @@ body {
 
 .nav span {
     color: #fff;
-    font-family: Orbitron;
+    font-family: HandelBol;
     font-size: 40px;
     font-weight: 800;
     animation: fluido 12s ease-in-out infinite;
@@ -67,19 +75,16 @@ body {
     height: 30px;
 }
 .seccionBusqueda {
-    background-image: url(./AssetsA3/wave.svg);
-    background-repeat: no-repeat;
-    background-position-y: 60%;
-    background-size: cover;
+    background-color: rgb(114, 115, 118) ;
     height: 20vh;
+    
 }
 .busqueda {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 2%;
-    padding-bottom: 100px;
-
+    
 }
 
 .search-form {
@@ -105,6 +110,7 @@ body {
     justify-content: space-between;
     position: relative;
     border-radius: 10px;
+    font-family: Handel;
 }
 .search-input:focus {
     outline: none;
@@ -133,7 +139,6 @@ body {
     background-color: rgb(114, 115, 118);
     min-height: 70vh;
     position: relative;
-    padding-top: 2%;
 }
 /* ---- ---- ---- CONTENEDOR TITULO y CONTROLES ---- ---- ---- */
 
@@ -168,7 +173,7 @@ body {
 .contenedorTituloControles2 h3 {
     color: #ffffff;
     font-size: 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: HandelBol;
     font-weight: 500;
     cursor: pointer;
     margin: 0;
@@ -206,7 +211,7 @@ body {
 }
 
 .flechasimg {
-    width: 3vw;
+    width: 2vw;
 }
 
 .videosPrincipal .contenedorPrincipal .flecha-izquierda, 
@@ -217,7 +222,7 @@ body {
     top:calc(50% - 20%); 
     cursor: pointer;
     transition: .2s ease all;
-    filter: invert(100%) sepia(6%) saturate(408%) hue-rotate(248deg) brightness(121%) contrast(100%);
+   
 }
 
 .videosPrincipal .contenedorPrincipal .flecha-izquierda {
@@ -229,7 +234,7 @@ body {
 
 .videosPrincipal .contenedorPrincipal .flecha-izquierda:hover, 
 .videosPrincipal .contenedorPrincipal .flecha-derecha:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(3036%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 /* ---- ---- ---- Carousel ---- ---- ---- */
@@ -338,7 +343,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: poppins;
+    font-family: Handel;
     font-weight: 400;
     margin-top: 5px;
     cursor: pointer;
@@ -410,12 +415,12 @@ body {
     top:calc(50% - 20%); 
     cursor: pointer;
     transition: .2s ease all;
-    filter: invert(100%) sepia(6%) saturate(408%) hue-rotate(248deg) brightness(121%) contrast(100%);
+    
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda:hover, 
 .videosPrincipal2 .contenedorPrincipal2 .flecha-derecha:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(3036%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda {
@@ -460,7 +465,7 @@ body {
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz {
@@ -472,11 +477,11 @@ body {
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra:hover {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video .imgVideo {
@@ -550,7 +555,7 @@ body {
 
 .spanUltimosVideos {
     color: #fff;
-    font-family: poppins;
+    font-family: HandelBol;
     font-weight: 500;
     font-size: 20px;
 }
@@ -601,11 +606,12 @@ body {
 }
 
 .iconListR {
-    filter: invert(73%) sepia(18%) saturate(1503%) hue-rotate(102deg) brightness(95%) contrast(94%);
+   height: fit-content;
 }
 
 .iconListR img {
     width: 100%;
+    background-color: white;
 }
 
 .divGrid img {
@@ -614,7 +620,7 @@ body {
 
 .divGrid h3, span {
     color: #fff;
-    font-family: poppins;
+    font-family: Handel;
     font-size: 0.8rem;
     margin: 0 !important;
 }
@@ -639,16 +645,27 @@ body {
 }
 
 .buttonCirc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #289130;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
     cursor: pointer;
-    filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(95%) contrast(93%);
+}
+
+.buttonCirc img {
+    cursor: pointer;
+    width: 10px;
 }
 
 .filtroGris {
     filter: invert(87%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
 }
 
-.buttonCirc:hover { 
-    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+.buttonCirc:hover img { 
+    filter: invert(99%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
 }
 
 .buttonsGrid {
@@ -656,6 +673,31 @@ body {
     align-content: center;
     justify-content: space-between;
     grid-column-start: 3;
+}
+
+.buttonVolverAVideos {
+    display: flex;
+    grid-column-start: 5;
+    background-color:  rgb(114, 115, 118);
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 10px 10px 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    align-items: center;
+    gap: 3px;
+}
+
+.buttonVolverAVideos img {
+    width: 10px;
+}
+
+.buttonVolverAVideos span {
+    font-family: Handel;
+}
+
+.buttonVolverAVideos:hover span {
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 .hidden {

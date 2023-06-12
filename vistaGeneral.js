@@ -58,39 +58,6 @@
 
  })
 
- // ---- ---- Pagination ---- ---- 
-
- const numeroPaginas = Math.ceil(videos1.length / 5);
- for (let i = 0; i < numeroPaginas; i++) { 
-    const indicador = document.createElement('button');
-
-if(i === 0){
-    indicador.classList.add('activo');
-}
-    document.querySelector('.indicadores').appendChild(indicador);
-    indicador.addEventListener('click',(e) =>{
-        fila.scrollLeft = i * fila.offsetWidth;
-
-        document.querySelector('.indicadores .activo').classList.remove ('activo');
-        e.target.classList.add('activo');
-   });
- }
-
- const numeroPaginas2 = Math.ceil(videos2.length / 5);
- for (let i = 0; i < numeroPaginas; i++) { 
-    const indicador = document.createElement('button');
-
-if(i === 0){
-    indicador.classList.add('activo');
-}
-    document.querySelector('.indicadores2').appendChild(indicador);
-    indicador.addEventListener('click',(e) =>{
-        fila2.scrollLeft = i * fila2.offsetWidth;
-
-        document.querySelector('.indicadores2 .activo').classList.remove ('activo');
-        e.target.classList.add('activo');
-   });
- }
 
  // ---- ---- Hover ---- ----
 
@@ -145,13 +112,23 @@ cerrarBusqueda.addEventListener('click', () => {
 
 // ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST ---- ----
 
-const buttonPlayList = document.querySelectorAll("#buttonPlayList");
+const buttonPlayList = document.querySelectorAll("#buttonPlayListIMG");
+let srcButtonPlayList = document.querySelector("#buttonPlayListIMG").src;
+
+function playListButtonToggleIcon() {
+    if(srcButtonPlayList ="./AssetsA3/listareproBusqueda.svg") {
+        buttonPlayList.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg")
+    } else {
+        buttonPlayList.setAttribute("src", "./AssetsA3/listareproBusqueda.svg")
+    }
+}
 
 buttonPlayList.forEach((buttonPlayList) => {
     buttonPlayList.addEventListener("click", (e) => {
-        e.target.classList.toggle('filtroGris');
+        e.target.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg");
     })
 })
+
 
 // ---- ---- LISTA DE REPRODUCCION ---- ----
 
