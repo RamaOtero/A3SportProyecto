@@ -113,19 +113,16 @@ cerrarBusqueda.addEventListener('click', () => {
 // ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST ---- ----
 
 const buttonPlayList = document.querySelectorAll("#buttonPlayListIMG");
-let srcButtonPlayList = document.querySelector("#buttonPlayListIMG").src;
+let srcButtonPlayList = document.querySelectorAll("#buttonPlayListIMG").src;
 
-function playListButtonToggleIcon() {
-    if(srcButtonPlayList ="./AssetsA3/listareproBusqueda.svg") {
-        buttonPlayList.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg")
-    } else {
-        buttonPlayList.setAttribute("src", "./AssetsA3/listareproBusqueda.svg")
-    }
-}
 
 buttonPlayList.forEach((buttonPlayList) => {
     buttonPlayList.addEventListener("click", (e) => {
-        e.target.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg");
+        if(e.target.src.match("./AssetsA3/listareproAgregarBNSVG.svg")) {
+            buttonPlayList.setAttribute("src", "./AssetsA3/listareproBusqueda.svg")
+        } else if(e.target.src ="./AssetsA3/listareproBusqueda.svg"){
+            buttonPlayList.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg")
+        }
     })
 })
 
@@ -181,10 +178,17 @@ const playButton = document.querySelector('.playVideo');
 const imgPlayButton = document.querySelector('.imgPlayButton');
 const progressBar = document.querySelector('.progressVideo');
 const timestamp = document.querySelector(".timestamp")
+const volverAVideosBttn = document.querySelector("#volverAVideosVista");
+const videoVentana = document.querySelector(".videoVentana")
+
+volverAVideosBttn.addEventListener("click", () =>{
+    videoVentana.classList.add("hidden");
+    video.pause();
+})
+
 
 function playPauseVideo() {
     video[video.paused ? 'play' : 'pause']()
-    playButtonToggleIcon()
 }
 
 function playButtonToggleIcon() {
@@ -217,3 +221,18 @@ playButton.addEventListener("click", playPauseVideo)
 video.addEventListener("click", playPauseVideo)
 progressBar.addEventListener("change", setVideoProgress)
 video.addEventListener("timeupdate", updateVideoProgress)
+
+const videoPlay = document.querySelectorAll(".videoPlay")
+const videoImg = document.querySelectorAll(".imgVideo")
+
+videoPlay.forEach((videoPlay) => {
+    videoPlay.addEventListener("click", () => {
+        videoVentana.classList.remove("hidden");
+    })
+})
+
+videoImg.forEach((videoImg) => {
+    videoImg.addEventListener("click", () => {
+        videoVentana.classList.remove("hidden");
+    })
+})

@@ -264,17 +264,38 @@ body {
     cursor: pointer;
 }
 
+.flechaOtraA {
+    position: absolute;
+    box-shadow: none !important;
+    left: 82%;
+    top: 65%;
+    background-color: #AD1A1C;
+    width: 10%;
+    height: 12%;
+    display: none;
+    border-radius: 100%;
+    align-self: center;
+    cursor: pointer;
+}
+
 .flechaOtra {
     position: absolute;
-    height: 2vw;
     box-shadow: none !important;
-    left: 78%;
-    top: 65%;
+    left: 22%;
+    top: 23%;
     display: none;
     cursor: pointer;
-    background-color: #fff;
-    background-size: contain;
-    border-radius: 100px;
+    width: 55%;
+    height: 55%;
+}
+
+.flechaOtraA:hover {
+    background-color: #00FF00;
+}
+
+.flechaOtraA:hover .flechaOtra {
+    cursor: pointer;
+    filter: invert(99%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel {
@@ -316,7 +337,7 @@ body {
     display: flex;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra {
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtraA,.flechaOtra {
     display: flex;
 }
 
@@ -324,9 +345,7 @@ body {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra:hover {
-    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
-}
+
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video .imgVideo {
     width: 100%;
@@ -472,7 +491,7 @@ body {
     display: flex;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra {
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtraA,.flechaOtra {
     display: flex;
 }
 
@@ -480,9 +499,6 @@ body {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra:hover {
-    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
-}
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video .imgVideo {
     width: 100%;
@@ -856,7 +872,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     top: 10%;
     z-index: 500;
     background-color: #000000;
@@ -871,38 +887,145 @@ body {
 }
 
 .videoVista {
-    width: 100vw;
+    width: 100%;
     cursor: pointer;
 }
 
 .videoMain {
-    width: 1280px;
+    width: 100vw;
+    height: 90vh;
 }
 
 .controlVideo {
     position: absolute;
     bottom: 0;
-    width: 1280px;
+    width: 100%;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
+    align-content: center;
     align-items: center;
     gap: 1rem;
-    background-color: #2525258e;
+    background-color: #000000;
+    cursor: default;
 }
 
 .controlVideo img {
-    width: 30px;
+    width: 17px;
+}
+
+.playVideo {
+    background-color: white;
+    width: 3%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding: 2px 0 2px 5px;
     cursor: pointer;
 }
 
-.progressVideo {
-    flex-grow: 1;
+.playVideo img {
+    width: 25%;
 }
+
+.reloj {
+    display: flex;
+    background-color: #808080;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.reloj:hover {
+    background-color: #00FF00;
+}
+
+.reloj img {
+    width: 10px;
+    align-self: center;
+    padding-left: 2px;
+}
+
+.reiniciar img{
+    cursor: pointer;
+    width: 23px;
+}
+
+.reiniciar:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.pantallaCompleta img{
+    cursor: pointer;
+    width: 26px;
+}
+
+.pantallaCompleta:hover {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+
+
+.progressVideo {
+    
+    flex-grow: 1;
+  margin-right: 15px;
+  height: 7px;
+  background: #4B4B4D;
+  border-radius: 0px;
+  background-image: linear-gradient(#4CAF50, #38813b);
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+}
+
+.progressVideo::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 #555;
+    transition: background .3s ease-in-out;
+  }
 
 .timestamp {
     color: #fff;
    font-size: 1rem;
+}
+.anteriorBttn:hover,.siguienteBttn:hover {
+    cursor: pointer;
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.volumenBttn img {
+    width:25px;
+}
+
+.volumenBttn:hover {
+    cursor: pointer;
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.volverAVideosVista {
+    cursor: pointer;
+    display: flex;
+    background-color: #4B4B4D;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    gap: 5px;
+}
+
+.volverAVideosVista img {
+    width: 8px;
+}
+
+.volverAVideosVista:hover span {
+    color: #00FF00;
 }
 
 /*  ---- ---- ANIMACION ---- ----  */
