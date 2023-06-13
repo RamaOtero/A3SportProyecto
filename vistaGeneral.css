@@ -83,8 +83,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 2%;
-    
 }
 
 .search-form {
@@ -122,7 +120,6 @@ body {
 .search-button {
     position: absolute;
     right: -0.5%;
-    top: 12%;
     width: 50px;
     border-radius: 50%;
     cursor: pointer;
@@ -594,7 +591,7 @@ body {
     width: 100%;
     height: 90vh;
     top: 10vh;
-    padding: 12vh 100px 20px 100px;
+    padding: 6vh 100px 20px 100px;
     grid-template-columns: 18% 18% 18% 18% 18%;
     grid-template-rows: 30% 30% 30%;
     gap: 10px;
