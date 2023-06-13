@@ -76,7 +76,7 @@ body {
 }
 .seccionBusqueda {
     background-color: rgb(114, 115, 118) ;
-    height: 20vh;
+    height: 10vh;
     
 }
 .busqueda {
@@ -137,7 +137,7 @@ body {
 
 .seccionCarrousel {
     background-color: rgb(114, 115, 118);
-    min-height: 70vh;
+    min-height: 80vh;
     position: relative;
 }
 /* ---- ---- ---- CONTENEDOR TITULO y CONTROLES ---- ---- ---- */
@@ -515,7 +515,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: poppins;
+    font-family: Handel;
     font-weight: 400;
     margin-top: 5px;
     cursor: pointer;

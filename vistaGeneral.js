@@ -137,6 +137,7 @@ imgGridBusqueda.forEach((imgGridBusqueda) => {
         anteriorBttn.classList.add("hidden");
         siguienteBttn.classList.add("hidden");
         bttnAgregarListaRojo.classList.remove("hidden");
+        controlesVideoLocal.classList.add("hidden");
     })
 })
 
@@ -303,15 +304,11 @@ const seccionBusqueda = document.querySelector(".seccionBusqueda");
 const seccionCarrusel = document.querySelector(".seccionCarrousel");
 const seccionGrid = document.querySelector(".seccionGrid");
 
-pantallaCompleta.forEach((pantallaCompleta) => {
-    pantallaCompleta.addEventListener("click", () => {
-        controlesVideoLocal.classList.toggle("hidden");
-        bttnTachoBlanco.classList.toggle("hidden");
-        navVideos.classList.toggle("hidden");
-        seccionBusqueda.classList.toggle("hidden");
-        seccionCarrusel.classList.toggle("hidden");
-        seccionGrid.classList.toggle("hidden");
-        video.classList.add("fullscreen");
-        seccionVideoVista.classList.add("top0")
-    })
-})
+// pantallaCompleta.forEach((pantallaCompleta) => {
+//    pantallaCompleta.addEventListener("click", () => {
+//        controlesVideoLocal.classList.toggle("hidden");
+//        bttnTachoBlanco.classList.toggle("hidden");
+//        video.classList.add("fullscreen");
+//        seccionVideoVista.classList.add("top0")
+//    })
+//})
