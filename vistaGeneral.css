@@ -595,9 +595,10 @@ body {
     height: 90vh;
     top: 10vh;
     padding: 12vh 100px 20px 100px;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 18% 18% 18% 18% 18%;
     grid-template-rows: 30% 30% 30%;
     gap: 10px;
+    justify-content: center;
 }
 
 .divGrid {
