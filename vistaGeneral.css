@@ -872,13 +872,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    top: 10%;
     width: 100vw;
     height: 90vh;
-    top: 10%;
-    z-index: 500;
+    z-index: 2000;
     background-color: #000000;
 }
 
+.top0 {
+    top: 0;
+    background-color: #000000;
+    width: 100vw;
+    height: 100vh;
+}
 
 .videoVista {
     display: flex;
@@ -928,6 +934,19 @@ body {
 .playVideo img {
     width: 25%;
 }
+.playVideo2 {
+    background-color: white;
+    width: 5%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding: 2px 0 2px 5px;
+    cursor: pointer;
+}
+
+.playVideo2 img {
+    width: 25%;
+}
 
 .reloj {
     display: flex;
@@ -970,7 +989,7 @@ body {
 
 
 .progressVideo {
-    
+    -webkit-appearance: none;
     flex-grow: 1;
   margin-right: 15px;
   height: 7px;
@@ -1085,7 +1104,88 @@ body {
     filter: invert(100%) sepia(94%) saturate(22%) hue-rotate(63deg) brightness(100%) contrast(107%);
 }
 
+.controlesVideoLocal {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background-color: #000000;
+    cursor: default;
+    border-radius: 20px 20px 0 0;
+}
 
+.divSeparadorControlesLocal {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 2px;
+}
+
+.controlesLocalArriba {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.controlesLocalAbajo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.bttnCargarVideos img {
+    width: 20px;
+}
+.bttnCargarVideos span {
+    color: #808080;
+}
+
+.bttnVaciarLista img {
+    width: 20px;
+}
+.bttnVaciarLista span {
+    color: #808080;
+}
+
+.bttnCargarVideos:hover {
+    cursor: pointer;
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.bttnVaciarLista:hover {
+    cursor: pointer;
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.pasajeVideosLocal button img{
+    width: 20px;
+    height: 20px;
+}
+.pasajeVideosLocal small {
+    font-family: Handel;
+    color: #808080;
+}
+.pasajeVideosLocal button:hover {
+    cursor: pointer;
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
+
+.bottom0 {
+    bottom: 0;
+}
+
+.fullscreen {
+    position: absolute;
+    right: 0 !important;
+    top: 0 !important;
+    width: 100vw;
+    height: 100vh;
+}
 
 /*  ---- ---- ANIMACION ---- ----  */
 

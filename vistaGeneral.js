@@ -191,13 +191,16 @@ const playButton = document.querySelector('.playVideo');
 const imgPlayButton = document.querySelector('.imgPlayButton');
 const progressBar = document.querySelector('.progressVideo');
 const timestamp = document.querySelector(".timestamp")
-const volverAVideosBttn = document.querySelector("#volverAVideosVista");
+const volverAVideosBttn = document.querySelectorAll(".volverAVideosVista");
 const videoVentana = document.querySelector(".videoVentana")
 
-volverAVideosBttn.addEventListener("click", () =>{
-    videoVentana.classList.add("hidden");
-    video.pause();
+volverAVideosBttn.forEach((volverAVideosBttn) => {
+    volverAVideosBttn.addEventListener("click", () =>{
+        videoVentana.classList.add("hidden");
+        video.pause();
+    })
 })
+
 
 
 function playPauseVideo() {
@@ -245,6 +248,8 @@ videoPlay.forEach((videoPlay) => {
         anteriorBttn.classList.remove("hidden");
         siguienteBttn.classList.remove("hidden");
         bttnAgregarListaRojo.classList.add("hidden");
+        navControles1.classList.remove("hidden");
+        controlesVideoLocal.classList.add('hidden');
     })
 })
 
@@ -254,17 +259,59 @@ videoImg.forEach((videoImg) => {
         anteriorBttn.classList.remove("hidden");
         siguienteBttn.classList.remove("hidden");
         bttnAgregarListaRojo.classList.add("hidden");
+        navControles1.classList.remove("hidden");
+        controlesVideoLocal.classList.add('hidden');
     })
 })
 
 // --- ---- Bttn Volumen ---- ----
 
-const volumenBttn = document.querySelector("#volumenBttn");
+const volumenBttn = document.querySelectorAll(".volumenImg");
 
-volumenBttn.addEventListener("click", (e) => { 
-    if (e.target.src.match("./AssetsA3/VideosIcons/volumen.svg")) {
-        volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumenMute.svg")
-    } else {
-        volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumen.svg")
-    }
+volumenBttn.forEach((volumenBttn) => {
+    volumenBttn.addEventListener("click", (e) => { 
+        if (e.target.src.match("./AssetsA3/VideosIcons/volumen.svg")) {
+            volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumenMute.svg")
+        } else {
+            volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumen.svg")
+        }
+    })
+})
+
+
+// ---- ----  VIDEO Locales VISTA  ---- ----
+
+const bttnCarpetaLocal = document.querySelector("#bttnCarpetaLocal");
+const navControles1 = document.querySelector(".controlVideo");
+const bttnTachoBlanco = document.querySelector(".bttnTachoBlanco");
+const controlesVideoLocal = document.querySelector(".controlesVideoLocal");
+
+bttnCarpetaLocal.addEventListener("click", () =>{
+    videoVentana.classList.remove('hidden');
+    bttnAgregarListaRojo.classList.add("hidden");
+    navControles1.classList.add("hidden");
+    bttnTachoBlanco.classList.add("bottom0");
+    controlesVideoLocal.classList.remove("hidden");
+})
+
+// ---- ----  pantallaCompleta  ---- ----
+
+const pantallaCompleta = document.querySelectorAll(".pantallaCompleta");
+const navVideos = document.querySelector(".nav")
+const seccionVideoVista = document.querySelector(".seccionVideoVista");
+const seccionBusqueda = document.querySelector(".seccionBusqueda");
+const seccionCarrusel = document.querySelector(".seccionCarrousel");
+const seccionGrid = document.querySelector(".seccionGrid");
+
+pantallaCompleta.forEach((pantallaCompleta) => {
+    pantallaCompleta.addEventListener("click", () => {
+        controlesVideoLocal.classList.toggle("hidden");
+        bttnTachoBlanco.classList.toggle("hidden");
+        navVideos.classList.toggle("hidden");
+        seccionBusqueda.classList.toggle("hidden");
+        seccionCarrusel.classList.toggle("hidden");
+        seccionGrid.classList.toggle("hidden");
+        video.classList.add("fullscreen");
+        seccionVideoVista.classList.add("top0")
+    })
 })

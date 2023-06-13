@@ -450,7 +450,9 @@
                 </div>
                 <!--    BOTON CARPETA        -->
                 <div class="fondoCarpeta">
-                    <a><img class="buttonCarpeta"  src="./AssetsA3/carpeta.svg"></a>
+                    <button id="bttnCarpetaLocal" class="sinborde">
+                        <img class="buttonCarpeta"  src="./AssetsA3/carpeta.svg">
+                    </button>
                 </div>
 
                 <!--   ULTIMOS VISTOS        -->
@@ -704,7 +706,7 @@
                             <img src="./AssetsA3/VideosIcons/siguiente.svg" alt="">
                         </button>
                         <button class="volumenBttn sinborde">
-                            <img id="volumenBttn" src="./AssetsA3/VideosIcons/volumen.svg" alt="">
+                            <img id="volumenBttn" class="volumenImg" src="./AssetsA3/VideosIcons/volumen.svg" alt="">
                         </button>
                         <small class="timestamp"> 
                             00:00
@@ -723,6 +725,56 @@
                             <img src="./AssetsA3/triangulo.svg" alt="">
                             <span>Volver a videos</span>
                         </button>
+                    </nav>
+                    <nav class="controlesVideoLocal">
+                        <div class="divSeparadorControlesLocal">
+                            <div class="controlesLocalArriba">
+                                <small class="timestamp"> 
+                                    00:00
+                                </small>
+                                <input type="range" min="0" max="100" start="0" oninput="rangevalue.value=value" class="progressVideo">
+                            </div>
+                            <div class="controlesLocalAbajo">
+                                <button class="playVideo2 sinborde">
+                                    <img class="imgPlayButton" src="./AssetsA3/VideosIcons/playNegro.svg" alt="">
+                                </button>
+                                <div class="pasajeVideosLocal">
+                                    <button>
+                                        <img src="./AssetsA3/VideosIcons/flechaGrisIzq.svg" alt="">
+                                    </button>
+                                    <small>
+                                        1 de 2
+                                    </small>
+                                    <button>
+                                        <img src="./AssetsA3/VideosIcons/flechaGrisDer.svg" alt="">
+                                    </button>
+                                </div>
+                                <button class="volumenBttn sinborde">
+                                    <img id="volumenBttn" class="volumenImg" src="./AssetsA3/VideosIcons/volumen.svg" alt="">
+                                </button>
+                                <button class="reloj sinborde">
+                                    <img src="./AssetsA3/VideosIcons/agujasReloj.svg" alt="">
+                                </button>
+                                <button class="reiniciar sinborde">
+                                    <img src="./AssetsA3/VideosIcons/reiniciar.svg" alt="">
+                                </button>
+                                <button class="pantallaCompleta sinborde">
+                                    <img src="./AssetsA3/VideosIcons/pantallaCompleta.svg" alt="">
+                                </button>
+                                <button class="bttnCargarVideos sinborde">
+                                    <img src="./AssetsA3/VideosIcons/mas.svg" alt="">
+                                    <span>Cargar videos</span>
+                                </button>
+                                <button class="bttnVaciarLista sinborde">
+                                    <img src="./AssetsA3/VideosIcons/menos.svg" alt="">
+                                    <span>Vaciar lista</span>
+                                </button>
+                                <button id="volverAVideosVista" class="volverAVideosVista sinborde">
+                                    <img src="./AssetsA3/triangulo.svg" alt="">
+                                    <span>Volver a videos</span>
+                                </button>
+                            </div>
+                        </div>
                     </nav>
                 </div>
             </section>
