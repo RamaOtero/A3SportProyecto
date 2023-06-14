@@ -157,7 +157,7 @@ iconListaRepro.addEventListener("click", () => {
         blur.classList.add('blurListaRepro');
         setTimeout(() => {
             window.addEventListener('click' ,e=> e.target == blur && closeContenedor())
-        }, 10)
+        }, 100)
     });
 
 spanListaRepro.addEventListener("click", () => {
