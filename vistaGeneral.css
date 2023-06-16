@@ -595,22 +595,20 @@ body {
     top: 10vh;
     padding: 6vh 100px 20px 100px;
     grid-template-columns: 18% 18% 18% 18% 18%;
-    grid-template-rows: 30% 30% 30%;
+    grid-template-rows: auto% 30% auto%;
     gap: 10px;
     justify-content: center;
 }
 
 .divGrid {
     display: grid;
-    align-items: center;
     justify-items: center;
     grid-template-columns: 75% 25%;
-    grid-template-rows: 90%;
 }
 
 .divGrid img {
     width: 95%;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -619,7 +617,7 @@ body {
     align-self: baseline;
     justify-self: start;
     cursor: pointer;
-    width: 2.5vw;
+    width: 50%;
 }
 
 .iconListR {

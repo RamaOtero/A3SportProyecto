@@ -199,6 +199,7 @@ volverAVideosBttn.forEach((volverAVideosBttn) => {
     volverAVideosBttn.addEventListener("click", () =>{
         videoVentana.classList.add("hidden");
         video.pause();
+        exitFullscreen();
     })
 })
 
@@ -244,14 +245,16 @@ const videoImg = document.querySelectorAll(".imgVideo")
 const bttnAgregarListaRojo = document.querySelector(".bttnAgregarListaRojo")
 
 videoPlay.forEach((videoPlay) => {
-    videoPlay.addEventListener("click", () => {
-        videoVentana.classList.remove("hidden");
-        anteriorBttn.classList.remove("hidden");
-        siguienteBttn.classList.remove("hidden");
-        bttnAgregarListaRojo.classList.add("hidden");
-        navControles1.classList.remove("hidden");
-        controlesVideoLocal.classList.add('hidden');
-    })
+    setTimeout(() => {
+        videoPlay.addEventListener("click", () => {
+            videoVentana.classList.remove("hidden");
+            anteriorBttn.classList.remove("hidden");
+            siguienteBttn.classList.remove("hidden");
+            bttnAgregarListaRojo.classList.add("hidden");
+            navControles1.classList.remove("hidden");
+            controlesVideoLocal.classList.add('hidden');
+        })
+    },100)
 })
 
 videoImg.forEach((videoImg) => {
@@ -304,11 +307,33 @@ const seccionBusqueda = document.querySelector(".seccionBusqueda");
 const seccionCarrusel = document.querySelector(".seccionCarrousel");
 const seccionGrid = document.querySelector(".seccionGrid");
 
-// pantallaCompleta.forEach((pantallaCompleta) => {
-//    pantallaCompleta.addEventListener("click", () => {
-//        controlesVideoLocal.classList.toggle("hidden");
-//        bttnTachoBlanco.classList.toggle("hidden");
-//        video.classList.add("fullscreen");
-//        seccionVideoVista.classList.add("top0")
-//    })
-//})
+
+function getFullscreen(element){
+    if(element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if(element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if(element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+      } else if(element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+      }
+  }
+
+  function exitFullscreen() {
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+
+
+ pantallaCompleta.forEach((pantallaCompleta) => {
+    pantallaCompleta.addEventListener("click", () => {
+        getFullscreen(seccionVideoVista);
+    })
+})
+
