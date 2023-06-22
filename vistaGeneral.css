@@ -72,12 +72,18 @@ body {
 
 
 .lupaPng {
-    height: 30px;
+    height: 25px;
+}
+
+.lupaPng:hover {
+    background-color: #00ff00a2;
+    border-radius: 100%;
+    transition: 1s;
 }
 .seccionBusqueda {
     background-color: rgb(114, 115, 118) ;
     height: 10vh;
-    
+    padding-top: 10px;
 }
 .busqueda {
     display: flex;
@@ -101,14 +107,17 @@ body {
     height: 100%;
     display: block;
     border-radius: 20px;
+    border: 1px solid rgb(80, 80, 80);
     font-size: 20px;
     padding: 8px 40px 8px 20px;
-    border: none;
     box-shadow: 0 5px 8px 3px rgba(0, 0, 0, .5);
     justify-content: space-between;
     position: relative;
-    border-radius: 10px;
     font-family: Handel;
+    align-content: center;
+    font-size: small;
+    background-color: #000000;
+    color: white;
 }
 .search-input:focus {
     outline: none;
@@ -119,12 +128,12 @@ body {
 }
 .search-button {
     position: absolute;
-    right: -0.5%;
-    width: 50px;
+    right: 1%;
     border-radius: 50%;
     cursor: pointer;
     border: none;
     background:none; 
+    display: flex;
 }
 
 .contenedor {
@@ -154,30 +163,34 @@ body {
     margin-left: 5%;
 }
 
-.contenedorTituloControles2 a {
-    cursor: pointer;
-}
-
 .contenedorTituloControles2 a:hover {
+    cursor: pointer;
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
+.contenedorTituloControles2 a:hover h3 {
+    color:#333333;
+}
+
 .contenedorTituloControles2 a img{
-    width: 25px;
-    
+    width: 17px;
 }
 
 .contenedorTituloControles2 h3 {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 17px;
     font-family: HandelBol;
     font-weight: 500;
     cursor: pointer;
     margin: 0;
 }
 
-.contenedorTituloControles2 h3:hover {
+.contenedorTituloControles2:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
+}
+
+.contenedorTituloControles2:hover h3 {
+    color: #4CAF50;
 }
 
 .contenedorTituloControles .indicadores button {
@@ -208,7 +221,7 @@ body {
 }
 
 .flechasimg {
-    width: 2vw;
+    width: 1.5vw;
 }
 
 .videosPrincipal .contenedorPrincipal .flecha-izquierda, 
@@ -238,57 +251,70 @@ body {
 .video {
     position: relative;
     width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    padding: 10px;
+}
+
+.contenedorVideoControles {
+    display: grid;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 
 .videoPlay {
-    height: 4vw;
-    position: absolute;
+    width: 3vw;
+    position: relative;
     box-shadow: none !important;
     cursor: pointer;
-    top: calc(100% - 70%);
-    left: calc(100% - 60%);
     display: none;
+}
+
+.gridVideoPlay {
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
 
 .cruz {
-    position: absolute;
+    position: relative;
     min-width: fit-content;
-    height: 2vw;
+    width: 1.8vw;
     box-shadow: none !important;
-    left: 80%;
-    top: 10%;
     display: none;
     cursor: pointer;
+}
+.gridCruz {
+    grid-column: 3/3;
+    grid-row: 1/1;
 }
 
-.flechaOtraA {
-    position: absolute;
-    box-shadow: none !important;
-    left: 82%;
-    top: 65%;
-    background-color: #AD1A1C;
-    width: 10%;
-    height: 12%;
-    display: none;
-    border-radius: 100%;
-    align-self: center;
-    cursor: pointer;
-}
 
 .flechaOtra {
-    position: absolute;
+    position: relative;
     box-shadow: none !important;
-    left: 22%;
-    top: 23%;
     display: none;
     cursor: pointer;
-    width: 55%;
-    height: 55%;
+    width: 1.5vw;
+    background-color: #AD1A1C;
+    padding: 7px;
+    border-radius: 20px;
+    min-width: fit-content;
+    overflow: visible;
 }
 
-.flechaOtraA:hover {
-    background-color: #00FF00;
+.gridFlechaOtra {
+    grid-column: 3/3;
+    grid-row: 3/3;
 }
+
 
 .flechaOtraA:hover .flechaOtra {
     cursor: pointer;
@@ -299,6 +325,7 @@ body {
     position: relative;
     overflow: hidden;
     scroll-behavior: smooth;
+    
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel {
@@ -313,7 +340,7 @@ body {
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video {
     min-width: 20%;
     transition: .3s ease all;
-    padding: 15px;
+    padding: 30px 15px 30px 15px;
 }
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover {
     transform: scale(1.1);
@@ -324,18 +351,25 @@ body {
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay {
     display: flex;
+    z-index: 200;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(200%) contrast(102%);
+    align-self: center;
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
+    
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz {
     display: flex;
+    z-index: 200;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(150%) contrast(102%);
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtraA,.flechaOtra {
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra {
     display: flex;
+    z-index: 200;
 }
 
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz:hover {
@@ -347,11 +381,13 @@ body {
 .videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video .imgVideo {
     width: 100%;
     vertical-align: top;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover img{
+.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover a .imgVideo{
     box-shadow: 0px 0px 10px rgba(76, 212, 117, 0.7);
+    filter: brightness(60%);
 }
 
 
@@ -361,19 +397,14 @@ body {
     justify-content: center;
     font-family: Handel;
     font-weight: 400;
-    margin-top: 5px;
     cursor: pointer;
     flex-direction: column;
     color: #fff;
-    font-size: 1rem;
-}
-
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video span:hover {
-    text-shadow: 1px 1px 10px #39FF14;
+    font-size: 85%;
 }
 
 
-/* ---- ---- ---- CONTENEDOR TITULO y CONTROLES 22222222222222222222222 ---- ---- ---- */
+/* ---- ---- ---- CONTENEDOR TITULO y CONTROLES 2 ---- ---- ---- */
 
 .contenedorTituloControles2 {
     display: flex;
@@ -383,13 +414,13 @@ body {
 
 .contenedorTituloControles22 {
     display: flex;
-    align-content: center;
+    align-items: center;
     gap: 10px;
     justify-content: center;
 }
 
 .contenedorTituloControles22 a img{
-    width: 25px;
+    width: 17px;
 }
 
 
@@ -408,7 +439,7 @@ body {
 }
 
 
-/* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS   2222222222222222 ---- ---- ---- */
+/* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS   2 ---- ---- ---- */
 
 .videosPrincipal2 {
     margin-bottom: 70px;
@@ -447,7 +478,8 @@ body {
     right: 0;
 }
 
-/* ---- ---- ---- Carousel   2222222222 ---- ---- ---- */
+/* ---- ---- ---- Carousel   2 ---- ---- ---- */
+
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 {
     position: relative;
@@ -473,12 +505,15 @@ body {
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover {
     transform: scale(1.1);
     transform-origin: center;
-    z-index: 100;
+    z-index: 50;
     color: rgb(76, 212, 117);
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay {
     display: flex;
+    z-index: 200;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(200%) contrast(102%);
+    align-self: center;
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay:hover {
@@ -487,10 +522,13 @@ body {
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz {
     display: flex;
+    z-index: 200;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(200%) contrast(102%);
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtraA,.flechaOtra {
+.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra {
     display: flex;
+    z-index: 200;
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz:hover {
@@ -502,10 +540,12 @@ body {
     width: 100%;
     vertical-align: top;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 8px;
 }
 
 .videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover img{
     box-shadow: 0px 0px 15px rgba(76, 212, 117, 0.3);
+    filter: brightness(60%);
 }
 
 
@@ -519,12 +559,9 @@ body {
     cursor: pointer;
     flex-direction: column;
     color: #fff;
-    font-size: 1rem;
+    font-size: 85%;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video span:hover {
-    text-shadow: 1px 1px 10px #39FF14;
-}
 
 /* ---- ---- ---- CARPETA ICONO ---- ---- ---- */
 
@@ -580,53 +617,54 @@ body {
 
 
 .seccionGrid {
-    display: flex;
+    position: absolute;
+    top: 10vh;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 90vh;
 }
 
 .gridBusqueda {
     display: grid;
     position: absolute;
     background-color: #000000;
-    box-shadow: 5px 5px 15px rgba(76, 212, 117, 0.3);;
-    width: 100%;
+    width: 100vw;
     height: 90vh;
-    top: 10vh;
-    padding: 6vh 100px 20px 100px;
-    grid-template-columns: 18% 18% 18% 18% 18%;
-    grid-template-rows: auto% 30% auto%;
-    gap: 10px;
-    justify-content: center;
+    padding: 4% 10% 2% 10%;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    gap: 30px;
 }
 
 .divGrid {
     display: grid;
-    justify-items: center;
-    grid-template-columns: 75% 25%;
+    grid-template-columns: auto auto;
 }
 
 .divGrid img {
-    width: 95%;
+    width: 13vw;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .divGrid button {
     display: flex;
-    align-self: baseline;
-    justify-self: start;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
+    align-self:flex-start;
+    justify-self: center;
+    margin-left: 10px;
 }
 
 .iconListR {
    height: fit-content;
+   overflow: hidden;
 }
 
 .iconListR img {
     width: 100%;
-    background-color: white;
+    overflow: hidden;
 }
 
 .divGrid img {
@@ -664,9 +702,9 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #289130;
-    width: 35px;
-    height: 35px;
-    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
     cursor: pointer;
 }
 
@@ -685,7 +723,7 @@ body {
 
 .buttonsGrid {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: space-between;
     grid-column-start: 3;
 }
@@ -699,8 +737,8 @@ body {
     padding: 10px 10px 10px 10px;
     border-radius: 50px;
     cursor: pointer;
-    align-items: center;
-    gap: 3px;
+    align-self: center !important;
+    gap: 6px;
 }
 
 .buttonVolverAVideos img {

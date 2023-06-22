@@ -99,6 +99,7 @@ const contenedorBusqueda = document.getElementById('gridBusqueda');
 searchInput.addEventListener('click', () => {
     setTimeout(() => {
         contenedorBusqueda.classList.remove('hidden');
+        seccionGrid.classList.remove('hidden');
     },100)
 })
 
@@ -107,6 +108,7 @@ const cerrarBusqueda = document.getElementById('cerrarBusqueda');
 cerrarBusqueda.addEventListener('click', () => {
 
     contenedorBusqueda.classList.add('hidden');
+    seccionGrid.classList.add('hidden');
 
 })
 
