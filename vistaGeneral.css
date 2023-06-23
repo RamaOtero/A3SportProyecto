@@ -29,8 +29,6 @@ button {
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -985,6 +983,15 @@ body {
     cursor: pointer;
 }
 
+.playVideo:hover {
+    background-color: #00FF00;
+}
+.playVideo2:hover {
+    background-color: #00FF00;
+}
+
+
+
 .playVideo2 img {
     width: 25%;
 }
@@ -1051,10 +1058,17 @@ body {
     transition: background .3s ease-in-out;
   }
 
-.timestamp {
+  .timestamp {
     color: #fff;
    font-size: 1rem;
 }
+.timestamp2 {
+    color: #fff;
+   font-size: 1rem;
+   margin-right: 40px;
+   margin-left: 4px;
+}
+
 .anteriorBttn:hover,.siguienteBttn:hover {
     cursor: pointer;
     filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
@@ -1092,11 +1106,10 @@ body {
     position: absolute;
     left: 0;
     bottom: 7%;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 21%, rgba(62,62,62,1) 100%);
+    background: linear-gradient(to bottom, rgba(89,89,89,1) 0%, rgba(0,0,0,1) 100%);
     width: 90px;
     height: 60px;
-    border-radius: 0 30px 0 0;
+    border-radius: 0 10px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1110,8 +1123,8 @@ body {
     background-color: #000000;
     width: 45px;
     height: 45px;
-    border-radius: 100%;
-    box-shadow: 0 0 10px 0 #00FF00;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 3px #00FF00;
 }
 
 .bttnTachoBlanco img {
@@ -1147,7 +1160,7 @@ body {
 .controlesVideoLocal {
     position: absolute;
     bottom: 0;
-    padding: 1rem;
+    padding: 1rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-content: center;

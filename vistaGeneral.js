@@ -167,6 +167,7 @@ imgGridBusqueda.forEach((imgGridBusqueda) => {
         siguienteBttn.classList.add("hidden");
         bttnAgregarListaRojo.classList.remove("hidden");
         controlesVideoLocal.classList.add("hidden");
+        bttnTachoBlanco.classList.remove("bottom0");
     })
 })
 
@@ -285,6 +286,7 @@ videoPlay.forEach((videoPlay) => {
             bttnAgregarListaRojo.classList.add("hidden");
             navControles1.classList.remove("hidden");
             controlesVideoLocal.classList.add('hidden');
+            bttnTachoBlanco.classList.remove("bottom0");
         })
     },100)
 })
@@ -297,6 +299,7 @@ videoImg.forEach((videoImg) => {
         bttnAgregarListaRojo.classList.add("hidden");
         navControles1.classList.remove("hidden");
         controlesVideoLocal.classList.add('hidden');
+        bttnTachoBlanco.classList.remove("bottom0");
     })
 })
 
