@@ -570,10 +570,10 @@ body {
     right: 0%;
     bottom: 0%;
     background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 21%, rgba(62,62,62,1) 100%);
+    background: linear-gradient(to bottom, rgba(89,89,89,1) 0%, rgba(0,0,0,1) 100%);
     width: 90px;
     height: 55px;
-    border-radius: 30px 0 0 0;
+    border-radius: 10px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -916,9 +916,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 10%;
+    top: 0;
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     z-index: 2000;
     background-color: #000000;
 }
@@ -934,11 +934,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
-}
-
-.videoVista {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     cursor: pointer;
 }
 
@@ -1033,7 +1030,6 @@ body {
 
 
 .progressVideo {
-    -webkit-: none;
     flex-grow: 1;
   margin-right: 15px;
   height: 7px;
@@ -1230,6 +1226,12 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+
+.swal2-popup {
+    font-family: Handel;
+  }
+
 
 /*  ---- ---- ANIMACION ---- ----  */
 

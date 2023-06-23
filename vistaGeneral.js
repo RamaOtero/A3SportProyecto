@@ -130,10 +130,10 @@ buttonPlayList.forEach((buttonPlayList, divGrid) => {
             Swal.fire({
                 position: 'bottom-start',
                 toast: true,
-                title: 'Eliminado de Playlist',
+                title: 'Eliminado',
                 showConfirmButton: false,
                 timer: 1000,
-                width: '15em',
+                width: '10em',
                 background: '#AD1A1C',
                 color:'#fff'
               })
@@ -143,10 +143,10 @@ buttonPlayList.forEach((buttonPlayList, divGrid) => {
             Swal.fire({
                 position: 'bottom-start',
                 toast: true,
-                title: 'Agregado a PlayList',
+                title: 'Agregado',
                 showConfirmButton: false,
                 timer: 1000,
-                width: '15em', 
+                width: '10em', 
                 background: '#008000',
                 color:'#fff' 
               })
@@ -223,19 +223,22 @@ const progressBar = document.querySelector('.progressVideo');
 const timestamp = document.querySelector(".timestamp")
 const volverAVideosBttn = document.querySelectorAll(".volverAVideosVista");
 const videoVentana = document.querySelector(".videoVentana")
+const nav = document.querySelector('.nav');
 
 volverAVideosBttn.forEach((volverAVideosBttn) => {
     volverAVideosBttn.addEventListener("click", () =>{
         videoVentana.classList.add("hidden");
         video.pause();
         exitFullscreen();
+        nav.classList.remove("hidden");
     })
 })
 
 
 
 function playPauseVideo() {
-    video[video.paused ? 'play' : 'pause']()
+    video[video.paused ? 'play' : 'pause'](
+    )
 }
 
 function playButtonToggleIcon() {
@@ -325,6 +328,7 @@ bttnCarpetaLocal.addEventListener("click", () =>{
     navControles1.classList.add("hidden");
     bttnTachoBlanco.classList.add("bottom0");
     controlesVideoLocal.classList.remove("hidden");
+    nav.classList.add("hidden");
 })
 
 // ---- ----  pantallaCompleta  ---- ----
@@ -332,6 +336,7 @@ bttnCarpetaLocal.addEventListener("click", () =>{
 const pantallaCompleta = document.querySelectorAll(".pantallaCompleta");
 const navVideos = document.querySelector(".nav")
 const seccionVideoVista = document.querySelector(".seccionVideoVista");
+const videoMain = document.querySelector(".videoMain");
 const seccionBusqueda = document.querySelector(".seccionBusqueda");
 const seccionCarrusel = document.querySelector(".seccionCarrousel");
 const seccionGrid = document.querySelector(".seccionGrid");
@@ -349,20 +354,51 @@ function getFullscreen(element){
       }
   }
 
-  function exitFullscreen() {
-    if(document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if(document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if(document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
+// Code Improvement Suggestions
+// Suggestion 1: Use a single function to handle all vendor-prefixed fullscreen methods.
+// Suggestion 2: Use feature detection instead of checking for specific browser methods.
+// Suggestion 3: Add error handling for cases when fullscreen exit is not supported.
+// Suggestion 4: Use arrow functions for better readability and consistency.
+// Suggestion 5: Consider using a library or polyfill to handle cross-browser compatibility.
+
+// Vendor-prefixed fullscreen methods
+const exitFullscreenMethods = [
+  'exitFullscreen',
+  'mozCancelFullScreen',
+  'webkitExitFullscreen'
+];
+
+// Feature detection for fullscreen support
+function isFullscreenSupported() {
+  const element = document.documentElement;
+  return (
+    element.requestFullscreen ||
+    element.mozRequestFullScreen ||
+    element.webkitRequestFullscreen ||
+    element.msRequestFullscreen
+  );
+}
+
+// Exit fullscreen function
+const exitFullscreen = () => {
+  if (isFullscreenSupported()) {
+    exitFullscreenMethods.forEach(method => {
+      if (document[method]) {
+        document[method]();
+      }
+    });
+  } else {
+    console.error('Fullscreen is not supported.');
   }
+};
 
 
  pantallaCompleta.forEach((pantallaCompleta) => {
     pantallaCompleta.addEventListener("click", () => {
-        getFullscreen(seccionVideoVista);
+        if (getFullscreen(videoMain)) {
+            exitFullscreen(videoMain)
+        } else {
+            getFullscreen(videoMain);
+        }
     })
 })
-
