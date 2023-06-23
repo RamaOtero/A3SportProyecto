@@ -96,6 +96,7 @@ fila2.addEventListener('mouseleave', () => {
 const searchInput = document.getElementById('search-input');
 const contenedorBusqueda = document.getElementById('gridBusqueda');
 
+
 searchInput.addEventListener('click', () => {
     setTimeout(() => {
         contenedorBusqueda.classList.remove('hidden');
@@ -116,17 +117,43 @@ cerrarBusqueda.addEventListener('click', () => {
 
 const buttonPlayList = document.querySelectorAll("#buttonPlayListIMG");
 let srcButtonPlayList = document.querySelectorAll("#buttonPlayListIMG").src;
+const divGrid = document.querySelectorAll('.divGrid');
+const buttonPlayList2 = document.querySelectorAll("#buttonPlayList");
 
 
-buttonPlayList.forEach((buttonPlayList) => {
+
+buttonPlayList.forEach((buttonPlayList, divGrid) => {
     buttonPlayList.addEventListener("click", (e) => {
         if(e.target.src.match("./AssetsA3/listareproAgregarBNSVG.svg")) {
-            buttonPlayList.setAttribute("src", "./AssetsA3/listareproBusqueda.svg")
+            buttonPlayList.setAttribute("src", "./AssetsA3/listareproBusqueda.svg");
+            e.target.parentElement.parentElement.classList.remove("filtroGrayScale");
+            Swal.fire({
+                position: 'bottom-start',
+                toast: true,
+                title: 'Eliminado de Playlist',
+                showConfirmButton: false,
+                timer: 1000,
+                width: '15em',
+                background: '#AD1A1C',
+                color:'#fff'
+              })
         } else if(e.target.src ="./AssetsA3/listareproBusqueda.svg"){
-            buttonPlayList.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg")
+            buttonPlayList.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg");
+            e.target.parentElement.parentElement.classList.add("filtroGrayScale");
+            Swal.fire({
+                position: 'bottom-start',
+                toast: true,
+                title: 'Agregado a PlayList',
+                showConfirmButton: false,
+                timer: 1000,
+                width: '15em', 
+                background: '#008000',
+                color:'#fff' 
+              })
         }
     })
 })
+
 
 // ---- ----  VIDEO GRID BUSQUEDA  ---- ----
 const imgGridBusqueda = document.querySelectorAll('.imgGridBusqueda')

@@ -600,6 +600,10 @@ body {
     margin-left: 5%;
 }
 
+.ultimosVideos img {
+    width: 17px;
+}
+
 
 .ultimosVideos:hover {
     filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
@@ -609,7 +613,7 @@ body {
     color: #fff;
     font-family: HandelBol;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 
@@ -640,6 +644,7 @@ body {
 .divGrid {
     display: grid;
     grid-template-columns: auto auto;
+    gap: 2px;
 }
 
 .divGrid img {
@@ -654,7 +659,6 @@ body {
     width: 100%;
     align-self:flex-start;
     justify-self: center;
-    margin-left: 10px;
 }
 
 .iconListR {
@@ -667,7 +671,7 @@ body {
     overflow: hidden;
 }
 
-.divGrid img {
+.divGrid div img {
     margin-bottom: 5px;
 }
 
@@ -755,6 +759,10 @@ body {
 
 .hidden {
     display: none !important;
+}
+
+.filtroGrayScale {
+    filter: grayscale(100%);
 }
 
 /*  ---- ---- SECCION LISTA REPRO ---- ----  */
@@ -1025,7 +1033,7 @@ body {
 
 
 .progressVideo {
-    -webkit-appearance: none;
+    -webkit-: none;
     flex-grow: 1;
   margin-right: 15px;
   height: 7px;

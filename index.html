@@ -9,10 +9,8 @@
     <link rel="stylesheet" href="./vistaGeneral.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.7.0.js"
-  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>A3 SPORT</title>
 </head>
 
@@ -547,7 +545,7 @@
 
         <section class="seccionGrid hidden" id="seccionGrid">
             <div class="gridBusqueda slide-in-top hidden" id="gridBusqueda" >
-                <div class="divGrid">
+                <div class="divGrid" id="divGrid">
                     <div>
                         <img class="imgGridBusqueda" src="./Assets/fotosCarru/foto1.PNG" alt="">
                         <h3>Analisis Individuales</h3>
@@ -754,7 +752,7 @@
         <div class="videoVentana hidden">
             <section class="seccionVideoVista">
                 <div class="slide-in-top videoVista">
-                    <video class="videoMain" src="./Assets/x2mate.com-TODOS LOS GOLES DE ARGENTINA EN EL MUNDIAL 2022-(240p).mp4" poster="./Assets/fotosCarru/foto3.PNG"></video>
+                    <video class="videoMain" src="./Assets/x2mate.com-TODOS LOS GOLES DE ARGENTINA EN EL MUNDIAL 2022-(240p).mp4" poster="#"></video>
                     <button class="bttnTachoBlanco sinborde"><div class="bttnTachoCirculo"><img src="./AssetsA3/VideosIcons/tachoBlanco.svg" alt=""></div></button>
                     <nav class="controlVideo">
                         <button class="anteriorBttn sinborde">
@@ -848,6 +846,7 @@
     <footer>
 
     </footer>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/95d78b0e1a.js" crossorigin="anonymous"></script>
     <script src="vistaGeneral.js"></script>
