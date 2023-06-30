@@ -166,6 +166,7 @@ imgGridBusqueda.forEach((imgGridBusqueda) => {
         anteriorBttn.classList.add("hidden");
         siguienteBttn.classList.add("hidden");
         bttnAgregarListaRojo.classList.remove("hidden");
+        navControles1.classList.remove("hidden");
         controlesVideoLocal.classList.add("hidden");
         bttnTachoBlanco.classList.remove("bottom0");
     })
@@ -218,9 +219,9 @@ Sortable.create(gridListaRepro, {
 // ---- ---- VIDEO PLAYER ---- ----
 
 const video = document.querySelector(".videoMain");
-const playButton = document.querySelector('.playVideo');
-const imgPlayButton = document.querySelector('.imgPlayButton');
-const progressBar = document.querySelector('.progressVideo');
+const playButton = document.querySelectorAll('.playVideo');
+const imgPlayButton = document.querySelectorAll('.imgPlayButton');
+const progressBar = document.querySelectorAll('.progressVideo');
 const timestamp = document.querySelector(".timestamp")
 const volverAVideosBttn = document.querySelectorAll(".volverAVideosVista");
 const videoVentana = document.querySelector(".videoVentana")
@@ -230,48 +231,165 @@ volverAVideosBttn.forEach((volverAVideosBttn) => {
     volverAVideosBttn.addEventListener("click", () =>{
         videoVentana.classList.add("hidden");
         video.pause();
-        exitFullscreen();
         nav.classList.remove("hidden");
     })
 })
 
-
+// ---- ---- PLAY PAUSE ---- ----
 
 function playPauseVideo() {
-    video[video.paused ? 'play' : 'pause'](
-    )
-}
-
-function playButtonToggleIcon() {
-    if(video.paused) {
-        imgPlayButton.setAttribute("src", "./Assets/playSVG.svg")
+    if (video.paused){
+        video.play();
+        imgPlayButton.forEach((imgPlayButton) => {
+            imgPlayButton.setAttribute("src", "./AssetsA3/VideosIcons/pauseNegro.svg");
+        })
     } else {
-        imgPlayButton.setAttribute("src", "./Assets/pause.svg")
+        video.pause();
+        imgPlayButton.forEach((imgPlayButton) => {
+            imgPlayButton.setAttribute("src", "./AssetsA3/VideosIcons/playNegro.svg");
+        })
     }
 }
 
-function setVideoProgress () {
-    video.currentTime = Number((progressBar.value * video.duration) / 100)
-}
+video.addEventListener("click", () => {
+    playPauseVideo()
+})
 
-function updateVideoProgress() {
-    progressBar.value = Number((video.currentTime / video.duration) * 100)
-    let minutes = Math.floor(video.currentTime / 60)    
-    let seconds = Math.floor(video.currentTime % 60)
-    if (minutes < 10) {
-        minutes = "0" + minutes
+playButton.forEach((playButton) => {
+    playButton.addEventListener("click", playPauseVideo)
+})
+
+// ---- ---- BARRA DE CARGA ---- ----
+
+// function updateVideoProgress() {
+//    
+//        progressBar.value = Number((video.currentTime / video.duration) * 100)
+//  
+//    let minutes = Math.floor(video.currentTime / 60)    
+//    let seconds = Math.floor(video.currentTime % 60)
+//    if (minutes < 10) {
+//        minutes = "0" + minutes
+//    }
+//    if (seconds < 10) {
+//        seconds = "0" + seconds
+//    }
+//   timestamp.textContent = `${minutes}:${seconds}`
+// }
+
+// function setVideoProgress () {
+//    
+//        video.currentTime = Number((progressBar.value * video.duration) / 100)
+//
+// }
+
+
+
+// progressBar.forEach((progressBar) =>{
+    //    progressBar.addEventListener("change", setVideoProgress)
+    // });
+    
+    
+    //    video.addEventListener("timeupdate", updateVideoProgress)
+    
+
+const currentTimeElem = document.querySelectorAll(".current-time")
+const totalTimeElem = document.querySelectorAll(".total-time")
+const previewImg = document.querySelectorAll(".preview-img")
+const thumbnailImg = document.querySelector(".thumbnail-img")
+const timelineContainer = document.querySelectorAll(".timeline-container")
+    
+// timeline
+timelineContainer.forEach((timelineContainer) => {
+    timelineContainer.addEventListener("mousemove", handleTimelineUpdate)
+    timelineContainer.addEventListener("mousedown", toggleScrubbing)
+
+    function toggleScrubbing(e) {
+        const rect = timelineContainer.getBoundingClientRect()
+        const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+        isScrubbing = (e.buttons & 1) === 1
+        videoVentana.classList.toggle("scrubbing", isScrubbing)
+        if (isScrubbing) {
+          wasPaused = video.paused
+          video.pause()
+        } else {
+          video.currentTime = percent * video.duration
+          if (!wasPaused) video.play()
+        }
+      
+        handleTimelineUpdate(e)
+      }
+      
+      function handleTimelineUpdate(e) {
+        const rect = timelineContainer.getBoundingClientRect()
+        const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+        const previewImgSrc = `AssetsA3/imgPrev/preview10.jpg`
+        previewImg.forEach((previewImg) => {
+            previewImg.src = previewImgSrc
+        })
+        timelineContainer.style.setProperty("--preview-position", percent)
+      
+        if (isScrubbing) {
+          e.preventDefault()
+          timelineContainer.style.setProperty("--progress-position", percent)
+        }
+      }
+      
+      document.addEventListener("mouseup", e => {
+        if (isScrubbing) toggleScrubbing(e)
+      })
+      document.addEventListener("mousemove", e => {
+        if (isScrubbing) handleTimelineUpdate(e)
+      })
+      
+      let isScrubbing = false
+      let wasPaused
+
+})      
+
+
+
+
+
+// TIME CLOCK
+
+ video.addEventListener("loadeddata", () => {
+    totalTimeElem.forEach((totalTimeElem) => {
+        totalTimeElem.textContent = formatDuration(video.duration)
+    })
+  })
+  
+  video.addEventListener("timeupdate", () => {
+    currentTimeElem.forEach((currentTimeElem) => {
+        currentTimeElem.textContent = formatDuration(video.currentTime)
+    })
+    const percent = video.currentTime / video.duration
+    timelineContainer.forEach((timelineContainer) => {
+        timelineContainer.style.setProperty("--progress-position", percent)
+    })
+  })
+  const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
+    minimumIntegerDigits: 2,
+  })
+
+  function formatDuration(time) {
+    const seconds = Math.floor(time % 60)
+    const minutes = Math.floor(time / 60) % 60
+    const hours = Math.floor(time / 3600)
+    if (hours === 0) {
+      return `${minutes}:${leadingZeroFormatter.format(seconds)}`
+    } else {
+      return `${hours}:${leadingZeroFormatter.format(
+        minutes
+      )}:${leadingZeroFormatter.format(seconds)}`
     }
-    if (seconds < 10) {
-        seconds = "0" + seconds
-    }
-    timestamp.textContent = `${minutes}:${seconds}`
-}
+  }
+  
+  function skip(duration) {
+    video.currentTime += duration
+  }
 
 
-playButton.addEventListener("click", playPauseVideo)
-video.addEventListener("click", playPauseVideo)
-progressBar.addEventListener("change", setVideoProgress)
-video.addEventListener("timeupdate", updateVideoProgress)
+// ---- ---- BOTONES PLAY ---- ----
 
 const videoPlay = document.querySelectorAll(".videoPlay")
 const videoImg = document.querySelectorAll(".imgVideo")
@@ -307,14 +425,86 @@ videoImg.forEach((videoImg) => {
 
 const volumenBttn = document.querySelectorAll(".volumenImg");
 
-volumenBttn.forEach((volumenBttn) => {
+
+/* volumenBttn.forEach((volumenBttn) => {
     volumenBttn.addEventListener("click", (e) => { 
-        if (e.target.src.match("./AssetsA3/VideosIcons/volumen.svg")) {
+        if (video.volume == 1) {
+            video.volume = 0;
             volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumenMute.svg")
         } else {
+            video.volume = 1;
             volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumen.svg")
         }
     })
+}) */
+
+// --- ---- Volumen SLIDE ---- ----
+const volumenSlide = document.querySelectorAll(".volumenSlide");
+
+/* volumenBttn.forEach((volumenBttn) => {
+    volumenBttn.addEventListener("click", toggleMute)
+})
+
+function toggleMute() {
+    if (video.volume == 1) {
+        video.volume = 0;
+        volumenBttn.forEach((volumenBttn) => {
+            volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumenMute.svg")
+        })
+    } else {
+        video.volume = 1;
+        volumenBttn.forEach((volumenBttn) => {
+            volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumen.svg")
+        })
+    }
+  }
+
+volumenSlide.forEach((volumenSlide) => {
+    volumenSlide.addEventListener("input", e => {
+        video.volume = e.target.value
+        video.muted = e.target.value === 0
+    })
+})
+
+    video.addEventListener("volumechange", (volumenSlide) => {
+        volumenSlide.value == video.volume
+        if (video.muted || video.volume === 0) {
+            volumenSlide.value = 0
+        }
+    })
+
+*/
+const videoVista = document.querySelector("videoVista");
+
+volumenBttn.forEach((volumenBttn) => {
+    volumenBttn.addEventListener("click", toggleMute)
+})
+volumenSlide.forEach((volumenSlide) => {
+    volumenSlide.addEventListener("input", e => {
+      video.volume = e.target.value
+      video.muted = e.target.value === 0
+    })
+})
+
+function toggleMute() {
+  video.muted = !video.muted
+}
+
+video.addEventListener("volumechange", () => {
+  volumenSlide.value = video.volume
+  let volumeLevel
+  if (video.muted || video.volume === 0) {
+    volumenSlide.value = 0
+    volumenBttn.forEach((volumenBttn) => {
+        volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumenMute.svg")
+    })
+  } else {
+        volumenBttn.forEach((volumenBttn) => {
+            volumenBttn.setAttribute("src", "./AssetsA3/VideosIcons/volumen.svg")
+        })
+  }
+
+  video.dataset.volumeLevel = volumeLevel
 })
 
 
@@ -396,7 +586,7 @@ const exitFullscreen = () => {
 };
 
 
- pantallaCompleta.forEach((pantallaCompleta) => {
+pantallaCompleta.forEach((pantallaCompleta) => {
     pantallaCompleta.addEventListener("click", () => {
         if (getFullscreen(videoMain)) {
             exitFullscreen(videoMain)

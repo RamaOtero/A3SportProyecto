@@ -13,7 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>A3 SPORT</title>
 </head>
-
 <body class="body">
     <header>
         <nav class="nav">
@@ -44,10 +43,13 @@
             </div>
         </section>
 
-        <!--    PRIMER CARROUSEL         --> 
+        <!--    SECCION CARROUSELES        --> 
 
 
         <section class="seccionCarrousel" id="seccionCarrousel">
+
+            <!--    PRIMER CARROUSEL         --> 
+
             <div class="videosPrincipal contenedor">
                 <div class="contenedorTituloControles"> 
                     <div class="contenedorTituloControles2">
@@ -770,11 +772,24 @@
                         </button>
                         <button class="volumenBttn sinborde">
                             <img id="volumenBttn" class="volumenImg" src="./AssetsA3/VideosIcons/volumen.svg" alt="">
+                            <input class="volumenSlide" type="range" min="0" max="1" step="any" value="1">
                         </button>
-                        <small class="timestamp"> 
+                         <!-- <small class="timestamp"> 
                             00:00
-                        </small>
-                        <input type="range" min="0" max="100" start="0" oninput="rangevalue.value=value" class="progressVideo">
+                        </small> -->
+                        <div class="duration-container">
+                            <div class="current-time">0:00</div>
+                            /
+                            <div class="total-time"></div>
+                          </div>  
+                          <!-- <input type="range" min="0" max="100" start="0" oninput="rangevalue.value=value" class="progressVideo"> -->
+                          <div class="timeline-container">
+                            <div class="timeline">
+                              <img class="preview-img">
+                              <div class="thumb-indicator"></div>
+                            </div>
+                          </div>
+
                         <button class="reloj sinborde">
                             <img src="./AssetsA3/VideosIcons/agujasReloj.svg" alt="">
                         </button>
@@ -791,14 +806,30 @@
                     </nav>
                     <nav class="controlesVideoLocal">
                         <div class="divSeparadorControlesLocal">
-                            <div class="controlesLocalArriba">
+
+                           <!--  <div class="controlesLocalArriba">
                                 <small class="timestamp2"> 
                                     00:00
                                 </small>
                                 <input type="range" min="0" max="100" start="0" oninput="rangevalue.value=value" class="progressVideo">
+                            </div> -->
+                        <div class="controlesLocalArriba"> 
+                            <div class="duration-container">
+                                <div class="current-time">0:00</div>
+                                /
+                                <div class="total-time"></div>
+                              </div>  
+                              <div class="timeline-container">
+                                <div class="timeline">
+                                  <img class="preview-img">
+                                  <div class="thumb-indicator"></div>
+                                </div>
+                              </div>
                             </div>
+                        </div> 
+                       
                             <div class="controlesLocalAbajo">
-                                <button class="playVideo2 sinborde">
+                                <button class="playVideo sinborde">
                                     <img class="imgPlayButton" src="./AssetsA3/VideosIcons/playNegro.svg" alt="">
                                 </button>
                                 <div class="pasajeVideosLocal">
@@ -814,6 +845,7 @@
                                 </div>
                                 <button class="volumenBttn sinborde">
                                     <img id="volumenBttn" class="volumenImg" src="./AssetsA3/VideosIcons/volumen.svg" alt="">
+                                    <input class="volumenSlide" type="range" min="0" max="1" step="any" value="1">
                                 </button>
                                 <button class="reloj sinborde">
                                     <img src="./AssetsA3/VideosIcons/agujasReloj.svg" alt="">
