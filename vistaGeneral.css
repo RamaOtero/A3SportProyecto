@@ -134,12 +134,12 @@ body {
     display: flex;
 }
 
-.main {
+.mainVideosCarruseles {
     background-color: rgb(114, 115, 118);
     height: 80vh;
 }
 
-.contenedor {
+.contenedorCarrusel {
     width: 90%;
     margin: auto;
 } 
@@ -151,34 +151,32 @@ body {
 }
 /* ---- ---- ---- CONTENEDOR TITULO y CONTROLES ---- ---- ---- */
 
-.contenedorTituloControles {
+.tituloControlesCarrusel {
     display: flex;
-    justify-content: space-between;
     align-items: end;
-    align-items: center;
 }
 
-.contenedorTituloControles2 {
+.contenedortituloControlesCarrusel {
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: center;
 }
 
-.contenedorTituloControles2 a:hover {
+.contenedortituloControlesCarrusel a:hover {
     cursor: pointer;
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
-.contenedorTituloControles2 a:hover h3 {
+.contenedortituloControlesCarrusel a:hover h3 {
     color:#333333;
 }
 
-.contenedorTituloControles2 a img{
+.contenedortituloControlesCarrusel a img{
     width: 17px;
 }
 
-.contenedorTituloControles2 h3 {
+.contenedortituloControlesCarrusel h3 {
     color: #ffffff;
     font-size: 17px;
     font-family: HandelBol;
@@ -187,36 +185,21 @@ body {
     margin: 0;
 }
 
-.contenedorTituloControles2:hover {
+.contenedortituloControlesCarrusel:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
-.contenedorTituloControles2:hover h3 {
+.contenedortituloControlesCarrusel:hover h3 {
     color: #4CAF50;
 }
 
-.contenedorTituloControles .indicadores button {
-    background: #fff;
-    height: 10px;
-    width: 10px;
-    cursor: pointer;
-    margin-right: 2px;
-    border-radius: 100%;
-}
-
-.contenedorTituloControles .indicadores button:hover,
-.contenedorTituloControles .indicadores button.activo {
-    background: rgb(76, 212, 117);
-}
-
-
 /* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS ---- ---- ---- */
 
-.videosPrincipal {
+.carruselListaReproduccion {
     margin-bottom: 0;
 }
 
-.videosPrincipal .contenedorPrincipal {
+.carruselListaReproduccion .contenedorPrincipalListaRepro {
     display: flex;
     align-items: center;
     position: relative;
@@ -226,31 +209,30 @@ body {
     width: 25px;
 }
 
-.videosPrincipal .contenedorPrincipal .flecha-izquierda, 
-.videosPrincipal .contenedorPrincipal .flecha-derecha {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-izquierda, 
+.carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-derecha {
     position: relative;
     border: none;
     height: 50%;
     top:calc(50% - 20%); 
     cursor: pointer;
     transition: .2s ease all;
-   
 }
 
-.videosPrincipal .contenedorPrincipal .flecha-izquierda {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-izquierda {
     left: 0;
 }
-.videosPrincipal .contenedorPrincipal .flecha-derecha {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-derecha {
     right: 0;
 }
 
-.videosPrincipal .contenedorPrincipal .flecha-izquierda:hover, 
-.videosPrincipal .contenedorPrincipal .flecha-derecha:hover {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-izquierda:hover, 
+.carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-derecha:hover {
     filter: invert(61%) sepia(89%) saturate(3036%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 /* ---- ---- ---- Carousel ---- ---- ---- */
-.video {
+.videoCarrusel {
     position: relative;
     width: 100%;
     height: 100%;
@@ -317,83 +299,84 @@ body {
     grid-row: 3/3;
 }
 
+.videoCarrusel:hover .flechaOtraA .flechaOtra {
+    fill: white;
+}
 
 .flechaOtraA:hover .flechaOtra {
     cursor: pointer;
-    filter: invert(99%) sepia(0%) saturate(5041%) hue-rotate(272deg) brightness(100%) contrast(93%);
+    background-color: #00df00;
+    fill:red;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel {
-    position: relative;
+
+
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro {
     overflow: hidden;
     scroll-behavior: smooth;
-    
+    width: 100%;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel {
-    position: relative;
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro {
     display: flex;
     flex-wrap: nowrap;
-    width: 100%;
-    padding-left: 10px;
-    justify-content: space-between;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel {
     min-width: 20%;
     transition: .3s ease all;
     padding: 30px 15px 30px 15px;
 }
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover {
     transform: scale(1.1);
     transform-origin: center;
     z-index: 50;
     color: rgb(76, 212, 117);
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover .videoPlay {
     display: flex;
     z-index: 200;
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(200%) contrast(102%);
     align-self: center;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .videoPlay:hover {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover .videoPlay:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
     
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover .cruz {
     display: flex;
     z-index: 200;
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(150%) contrast(102%);
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .flechaOtra {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover .flechaOtra {
     display: flex;
     z-index: 200;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover .cruz:hover {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover .cruz:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video .imgVideo {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel .imgVideo {
     width: 100%;
     vertical-align: top;
     box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 8px;
 }
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video.hover a .imgVideo{
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover a .imgVideo{
     box-shadow: 0px 0px 10px rgba(76, 212, 117, 0.7);
     filter: brightness(60%);
 }
 
 
-.videosPrincipal .contenedorPrincipal .contenedorCarrousel .carrousel .video span {
+.carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -405,49 +388,13 @@ body {
     font-size: 85%;
 }
 
+/* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS CARRUSEL DESTACADOS ---- ---- ---- */
 
-/* ---- ---- ---- CONTENEDOR TITULO y CONTROLES 2 ---- ---- ---- */
-
-.contenedorTituloControles2 {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-}
-
-.contenedorTituloControles22 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-}
-
-.contenedorTituloControles22 a img{
-    width: 17px;
-}
-
-
-.contenedorTituloControles2 .indicadores2 button {
-    background: #fff;
-    height: 10px;
-    width: 10px;
-    cursor: pointer;
-    margin-right: 2px;
-    border-radius: 100%;
-}
-
-.contenedorTituloControles2 .indicadores2 button:hover,
-.contenedorTituloControles2 .indicadores2 button.activo {
-    background: rgb(76, 212, 117);
-}
-
-
-/* ---- ---- ---- CONTENEDOR PRINCIPAL y FLECHAS   2 ---- ---- ---- */
-
-.videosPrincipal2 {
+.carruselDestacados {
     margin-bottom: 70px;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 {
+.carruselDestacados .contenedorPrincipalDestacados {
     display: flex;
     align-items: center;
     position: relative;
@@ -457,8 +404,8 @@ body {
     width: 30px;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda, 
-.videosPrincipal2 .contenedorPrincipal2 .flecha-derecha {
+.carruselDestacados .contenedorPrincipalDestacados .flecha-izquierda, 
+.carruselDestacados .contenedorPrincipalDestacados .flecha-derecha {
     position: relative;
     border: none;
     height: 50%;
@@ -468,28 +415,28 @@ body {
     
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda:hover, 
-.videosPrincipal2 .contenedorPrincipal2 .flecha-derecha:hover {
+.carruselDestacados .contenedorPrincipalDestacados .flecha-izquierda:hover, 
+.carruselDestacados .contenedorPrincipalDestacados .flecha-derecha:hover {
     filter: invert(61%) sepia(89%) saturate(3036%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .flecha-izquierda {
+.carruselDestacados .contenedorPrincipalDestacados .flecha-izquierda {
     left: 0;
 }
-.videosPrincipal2 .contenedorPrincipal2 .flecha-derecha {
+.carruselDestacados .contenedorPrincipalDestacados .flecha-derecha {
     right: 0;
 }
 
-/* ---- ---- ---- Carousel   2 ---- ---- ---- */
+/* ---- ---- ---- Carousel  DESTACADOS ---- ---- ---- */
 
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados {
     position: relative;
     overflow: hidden;
     scroll-behavior: smooth;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados {
     position: relative;
     display: flex;
     flex-wrap: nowrap;
@@ -498,60 +445,61 @@ body {
     justify-content: space-between;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel {
     min-width: 20%;
     transition: .3s ease all;
     padding: 15px;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover {
     transform: scale(1.1);
     transform-origin: center;
-    z-index: 50;
+    z-index: 10;
     color: rgb(76, 212, 117);
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover .videoPlay {
     display: flex;
     z-index: 200;
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(200%) contrast(102%);
     align-self: center;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .videoPlay:hover {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover .videoPlay:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover .cruz {
     display: flex;
     z-index: 200;
     filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(200%) contrast(102%);
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .flechaOtra {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover .flechaOtra {
     display: flex;
     z-index: 200;
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover .cruz:hover {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover .cruz:hover {
     filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
 }
 
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video .imgVideo {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel .imgVideo {
     width: 100%;
     vertical-align: top;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 8px;
+
 }
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video.hover img{
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover a .imgVideo{
     box-shadow: 0px 0px 15px rgba(76, 212, 117, 0.3);
     filter: brightness(60%);
 }
 
 
-.videosPrincipal2 .contenedorPrincipal2 .contenedorCarrousel2 .carrousel2 .video span {
+.carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,7 +547,6 @@ body {
     cursor: pointer;
     width: fit-content;
     gap: 10px;
-    margin-left: 5%;
 }
 
 .ultimosVideos img {
@@ -608,7 +555,11 @@ body {
 
 
 .ultimosVideos:hover {
-    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+    filter: invert(61%) sepia(89%) saturate(1000%) hue-rotate(80deg) brightness(114%) contrast(127%);
+}
+
+.ultimosVideos:hover span {
+    color: #4CAF50;
 }
 
 .spanUltimosVideos {
@@ -636,11 +587,11 @@ body {
     background-color: #000000;
     width: 100vw;
     height: 90vh;
-    padding: 4% 10% 2% 10%;
+    padding: 100px 10% 100px 10%;
     grid-template-columns: auto auto auto auto auto;
-    grid-template-rows: 20% 20% 20% 20%;
+    grid-template-rows: auto auto auto auto;
     gap: 30px;
-    row-gap: 60px;
+    row-gap: 5%;
 }
 
 .divGrid {
@@ -761,6 +712,10 @@ body {
 
 .hidden {
     display: none !important;
+}
+
+.opacity0 {
+    opacity: 0;
 }
 
 .filtroGrayScale {
@@ -946,6 +901,7 @@ body {
     height: 100vh;
 }
 
+
 .controlVideo {
     position: absolute;
     bottom: 0;
@@ -958,7 +914,9 @@ body {
     gap: 1rem;
     background-color: #000000;
     cursor: default;
+    transition: opacity 150ms ease-in-out;
 }
+
 
 .controlVideo img {
     width: 17px;
@@ -966,7 +924,7 @@ body {
 
 .playVideo {
     background-color: white;
-    width: 5%;
+    width: 50px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -1076,7 +1034,7 @@ body {
 
 
 .timeline {
-    background-color: rgba(100, 100, 100, .5);
+    background-color: #4b4b4d;
     height: 3px;
     width: 100%;
     position: relative;
@@ -1089,7 +1047,7 @@ body {
     top: 0;
     bottom: 0;
     right: calc(100% - var(--preview-position) * 100%);
-    background-color: rgb(150, 150, 150);
+    background-color:#084309;
     display: none;
 }
 
@@ -1100,7 +1058,7 @@ body {
     top: 0;
     bottom: 0;
     right: calc(100% - var(--progress-position) * 100%);
-    background-color: #00FF00;
+    background-color: #3e9542;
 }
 
 .timeline .thumb-indicator {
@@ -1110,7 +1068,7 @@ body {
     height: 200%;
     top: -50%;
     left: calc(var(--progress-position) * 100%);
-    background-color: #00FF00;
+    background-color:  #3e9542;
     border-radius: 50%;
     transition: transform 150ms ease-in-out;
     aspect-ratio: 1 / 1;
@@ -1238,7 +1196,7 @@ body {
 .bttnTachoBlanco {
     position: absolute;
     left: 0;
-    bottom: 7%;
+    bottom: 60px;
     background: linear-gradient(to bottom, rgba(89,89,89,1) 0%, rgba(0,0,0,1) 100%);
     width: 90px;
     height: 60px;
@@ -1247,6 +1205,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    
 }
 
 .bttnTachoCirculo {
@@ -1279,9 +1238,12 @@ body {
     background-color: #591212;
 }
 
-.bttnAgregarListaRojo:focus {
+.bttnAgregarListaRojoBackground {
     background-color: #4B4B4D;
 }
+
+/*
+
 .bttnAgregarListaRojo:focus span {
     color: #000000;
 }
@@ -1289,6 +1251,8 @@ body {
 .bttnAgregarListaRojo:focus img {
     filter: invert(100%) sepia(94%) saturate(22%) hue-rotate(63deg) brightness(100%) contrast(107%);
 }
+
+*/
 
 .controlesVideoLocal {
     position: absolute;
@@ -1303,6 +1267,7 @@ body {
     border-radius: 20px 20px 0 0;
     flex-direction: column;
     width: fit-content;
+    gap: 5px;
 }
 
 .divSeparadorControlesLocal {
@@ -1317,7 +1282,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
     width:100%;
 }
 
@@ -1325,18 +1290,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
+    padding-left: 10px;
 }
 
 .bttnCargarVideos img {
-    width: 20px;
+    width: 23px;
 }
 .bttnCargarVideos span {
     color: #808080;
 }
 
 .bttnVaciarLista img {
-    width: 20px;
+    width: 23px;
 }
 .bttnVaciarLista span {
     color: #808080;

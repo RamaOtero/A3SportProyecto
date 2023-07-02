@@ -1,8 +1,8 @@
- const fila = document.querySelector('.contenedorCarrousel');
- const fila2 = document.querySelector('.contenedorCarrousel2');
- const videos1 = document.querySelectorAll('.video1');
+ const fila = document.querySelector('.contenedorCarruselListaRepro');
+ const fila2 = document.querySelector('.contenedorCarruselDestacados');
+ const videos1 = document.querySelectorAll('.videoCarruselListaRepro');
  const videos2 = document.querySelectorAll('.video2');
- const videos = document.querySelectorAll('.video');
+ const videos = document.querySelectorAll('.videoCarrusel');
 
  const flechaIzquierda = document.getElementById('flecha-izquierda');
  const flechaDerecha = document.getElementById('flecha-derecha');
@@ -14,23 +14,12 @@
 
  flechaDerecha.addEventListener('click',() =>{
     fila.scrollLeft += fila.offsetWidth;
-
-    const indicadorActivo = document.querySelector('.indicadores .activo');
-    if (indicadorActivo.nextSibling){
-        indicadorActivo.nextSibling.classList.add ('activo');
-        indicadorActivo.classList.remove('activo');
-    }
- })
+ });
 
  flechaDerecha2.addEventListener('click',() =>{
     fila2.scrollLeft += fila2.offsetWidth;
 
-    const indicadorActivo = document.querySelector('.indicadores2 .activo');
-    if (indicadorActivo.nextSibling){
-        indicadorActivo.nextSibling.classList.add ('activo');
-        indicadorActivo.classList.remove('activo');
-    }
- })
+    })
 
 
  // ---- ---- Event Listener para flecha Izquierda ---- ----
@@ -38,24 +27,10 @@
 
  flechaIzquierda.addEventListener('click',() =>{
     fila.scrollLeft -= fila.offsetWidth;
-
-    const indicadorActivo = document.querySelector('.indicadores .activo');
-    if (indicadorActivo.previousSibling){
-        indicadorActivo.previousSibling.classList.add ('activo');
-        indicadorActivo.classList.remove('activo');
-    }
-
  })
 
  flechaIzquierda2.addEventListener('click',() =>{
     fila2.scrollLeft -= fila2.offsetWidth;
-
-    const indicadorActivo = document.querySelector('.indicadores2 .activo');
-    if (indicadorActivo.previousSibling){
-        indicadorActivo.previousSibling.classList.add ('activo');
-        indicadorActivo.classList.remove('activo');
-    }
-
  })
 
 
@@ -172,6 +147,7 @@ imgGridBusqueda.forEach((imgGridBusqueda) => {
     })
 })
 
+
 // ---- ---- LISTA DE REPRODUCCION ---- ----
 
 const cerrarListaRepro = document.getElementById('cerrarListaRepro');
@@ -232,6 +208,10 @@ volverAVideosBttn.forEach((volverAVideosBttn) => {
         videoVentana.classList.add("hidden");
         video.pause();
         nav.classList.remove("hidden");
+        document.exitFullscreen()
+        navControles1.removeEventListener("mouseover", fullScreen);
+        controlesVideoLocal.removeEventListener("mouseover", fullScreen)
+        video.removeEventListener("mouseover", videoFullScreen)
     })
 })
 
@@ -421,6 +401,23 @@ videoImg.forEach((videoImg) => {
     })
 })
 
+const bttnAgregarListaRojoSpan = document.querySelector("#bttnAgregarListaRojoSpan");
+
+
+bttnAgregarListaRojo.addEventListener("click", () =>{
+    bttnAgregarListaRojoSpanToggle()
+})
+
+function bttnAgregarListaRojoSpanToggle() {
+   if (bttnAgregarListaRojoSpan.innerHTML == "Agregar a la lista") {
+    bttnAgregarListaRojoSpan.innerHTML = "Video agregado"
+    bttnAgregarListaRojo.classList.add("bttnAgregarListaRojoBackground")
+   } else {
+    bttnAgregarListaRojoSpan.innerHTML = "Agregar a la lista"
+    bttnAgregarListaRojo.classList.remove("bttnAgregarListaRojoBackground")
+   }
+}
+
 // --- ---- Bttn Volumen ---- ----
 
 const volumenBttn = document.querySelectorAll(".volumenImg");
@@ -534,64 +531,33 @@ const seccionBusqueda = document.querySelector(".seccionBusqueda");
 const seccionCarrusel = document.querySelector(".seccionCarrousel");
 const seccionGrid = document.querySelector(".seccionGrid");
 
+function fullScreen() {      
+                navControles1.classList.remove("opacity0")       
+                controlesVideoLocal.classList.remove("opacity0")
+                bttnTachoBlanco.classList.remove("opacity0")
+        }
 
-function getFullscreen(element){
-    if(element.requestFullscreen) {
-        element.requestFullscreen();
-      } else if(element.mozRequestFullScreen) {
-        element.mozRequestFullScreen();
-      } else if(element.webkitRequestFullscreen) {
-        element.webkitRequestFullscreen();
-      } else if(element.msRequestFullscreen) {
-        element.msRequestFullscreen();
-      }
-  }
-
-// Code Improvement Suggestions
-// Suggestion 1: Use a single function to handle all vendor-prefixed fullscreen methods.
-// Suggestion 2: Use feature detection instead of checking for specific browser methods.
-// Suggestion 3: Add error handling for cases when fullscreen exit is not supported.
-// Suggestion 4: Use arrow functions for better readability and consistency.
-// Suggestion 5: Consider using a library or polyfill to handle cross-browser compatibility.
-
-// Vendor-prefixed fullscreen methods
-const exitFullscreenMethods = [
-  'exitFullscreen',
-  'mozCancelFullScreen',
-  'webkitExitFullscreen'
-];
-
-// Feature detection for fullscreen support
-function isFullscreenSupported() {
-  const element = document.documentElement;
-  return (
-    element.requestFullscreen ||
-    element.mozRequestFullScreen ||
-    element.webkitRequestFullscreen ||
-    element.msRequestFullscreen
-  );
+function videoFullScreen() {
+    navControles1.classList.add("opacity0")
+            controlesVideoLocal.classList.add("opacity0")
+            bttnTachoBlanco.classList.add("opacity0")
 }
 
-// Exit fullscreen function
-const exitFullscreen = () => {
-  if (isFullscreenSupported()) {
-    exitFullscreenMethods.forEach(method => {
-      if (document[method]) {
-        document[method]();
-      }
-    });
-  } else {
-    console.error('Fullscreen is not supported.');
-  }
-};
+function pantallaCompletaToggle() {
+    if (document.fullscreenElement == null) {
+        seccionVideoVista.requestFullscreen()
+        video.addEventListener("mouseover", videoFullScreen)
+        navControles1.addEventListener("mouseover", fullScreen)
+        controlesVideoLocal.addEventListener("mouseover", fullScreen)
+    } else {
+        navControles1.removeEventListener("mouseover", fullScreen);
+        controlesVideoLocal.removeEventListener("mouseover", fullScreen)
+        video.removeEventListener("mouseover", videoFullScreen)
+        document.exitFullscreen()
+    }
+}
+    
 
-
-pantallaCompleta.forEach((pantallaCompleta) => {
-    pantallaCompleta.addEventListener("click", () => {
-        if (getFullscreen(videoMain)) {
-            exitFullscreen(videoMain)
-        } else {
-            getFullscreen(videoMain);
-        }
+    pantallaCompleta.forEach((pantallaCompleta) => {
+        pantallaCompleta.addEventListener("click", pantallaCompletaToggle)
     })
-})
