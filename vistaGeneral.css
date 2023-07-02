@@ -74,9 +74,9 @@ body {
 }
 
 .lupaPng:hover {
-    background-color: #00ff00a2;
-    border-radius: 100%;
-    transition: 1s;
+    background-color: #00ff006e;
+    border-radius: 50%;
+    transition: 0.5s;
 }
 .seccionBusqueda {
     background-color: rgb(114, 115, 118) ;
@@ -121,7 +121,7 @@ body {
     outline: none;
 }
 .search-input:hover {
-    box-shadow: 0 5px 8px 3px rgba(73, 209, 73, 0.384);
+    box-shadow: 0 5px 8px 3px rgba(73, 209, 73, 0.24);
     transition: 1s; 
 }
 .search-button {

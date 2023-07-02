@@ -412,9 +412,11 @@ function bttnAgregarListaRojoSpanToggle() {
    if (bttnAgregarListaRojoSpan.innerHTML == "Agregar a la lista") {
     bttnAgregarListaRojoSpan.innerHTML = "Video agregado"
     bttnAgregarListaRojo.classList.add("bttnAgregarListaRojoBackground")
+    
    } else {
     bttnAgregarListaRojoSpan.innerHTML = "Agregar a la lista"
     bttnAgregarListaRojo.classList.remove("bttnAgregarListaRojoBackground")
+    
    }
 }
 
