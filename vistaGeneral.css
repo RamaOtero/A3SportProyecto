@@ -996,7 +996,9 @@ body {
     filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
 }
 
-
+.pantallaCompletaActivo {
+    filter: invert(58%) sepia(95%) saturate(416%) hue-rotate(64deg) brightness(109%) contrast(124%);
+}
 
 /* .progressVideo {
     

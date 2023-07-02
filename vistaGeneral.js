@@ -210,8 +210,9 @@ volverAVideosBttn.forEach((volverAVideosBttn) => {
         nav.classList.remove("hidden");
         document.exitFullscreen()
         navControles1.removeEventListener("mouseover", fullScreen);
-        controlesVideoLocal.removeEventListener("mouseover", fullScreen)
-        video.removeEventListener("mouseover", videoFullScreen)
+        controlesVideoLocal.removeEventListener("mouseover", fullScreen);
+        video.removeEventListener("mouseover", videoFullScreen);
+        pantallaCompleta.classList.remove("pantallaCompletaActivo");
     })
 })
 
@@ -537,12 +538,14 @@ function fullScreen() {
                 navControles1.classList.remove("opacity0")       
                 controlesVideoLocal.classList.remove("opacity0")
                 bttnTachoBlanco.classList.remove("opacity0")
+                
         }
 
 function videoFullScreen() {
     navControles1.classList.add("opacity0")
             controlesVideoLocal.classList.add("opacity0")
             bttnTachoBlanco.classList.add("opacity0")
+            
 }
 
 function pantallaCompletaToggle() {
@@ -551,15 +554,19 @@ function pantallaCompletaToggle() {
         video.addEventListener("mouseover", videoFullScreen)
         navControles1.addEventListener("mouseover", fullScreen)
         controlesVideoLocal.addEventListener("mouseover", fullScreen)
+        
     } else {
         navControles1.removeEventListener("mouseover", fullScreen);
         controlesVideoLocal.removeEventListener("mouseover", fullScreen)
         video.removeEventListener("mouseover", videoFullScreen)
+        
         document.exitFullscreen()
     }
 }
-    
-
+  
     pantallaCompleta.forEach((pantallaCompleta) => {
-        pantallaCompleta.addEventListener("click", pantallaCompletaToggle)
+        pantallaCompleta.addEventListener("click", () => {
+            pantallaCompletaToggle()
+            pantallaCompleta.classList.toggle("pantallaCompletaActivo");
+        });
     })
