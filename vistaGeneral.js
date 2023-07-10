@@ -16,6 +16,18 @@
     fila.scrollLeft += fila.offsetWidth;
  });
 
+ flechaDerecha.addEventListener('click',() =>{
+    var scrollDer = fila.scrollLeft() + fila.width();
+     if(fila.scrollLeft()+fila.width()/2>=fila[0].scrollWidth){
+        scrollDer = fila[0].scrollWidth-fila.width();        
+     }
+     if(fila.scrollLeft()+fila.width()>=fila[0].scrollWidth){
+        scrollDer = 0;        
+     }
+     fila.scrollLeft(scrollDer);
+ });
+
+
  flechaDerecha2.addEventListener('click',() =>{
     fila2.scrollLeft += fila2.offsetWidth;
 
@@ -72,7 +84,7 @@ const searchInput = document.getElementById('search-input');
 const contenedorBusqueda = document.getElementById('gridBusqueda');
 
 
-searchInput.addEventListener('click', () => {
+searchInput.addEventListener('keydown', () => {
     setTimeout(() => {
         contenedorBusqueda.classList.remove('hidden');
         seccionGrid.classList.remove('hidden');
@@ -370,11 +382,12 @@ timelineContainer.forEach((timelineContainer) => {
   }
 
 
-// ---- ---- BOTONES PLAY ---- ----
+// ---- ---- BOTONES PLAY / FLECHA LISTA REPRO---- ----
 
 const videoPlay = document.querySelectorAll(".videoPlay")
 const videoImg = document.querySelectorAll(".imgVideo")
 const bttnAgregarListaRojo = document.querySelector(".bttnAgregarListaRojo")
+
 
 videoPlay.forEach((videoPlay) => {
     setTimeout(() => {

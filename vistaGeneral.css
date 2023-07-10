@@ -71,12 +71,14 @@ body {
 
 .lupaPng {
     height: 25px;
+    border-radius: 100%;
+    overflow: hidden;
 }
 
 .lupaPng:hover {
-    background-color: #00ff006e;
-    border-radius: 50%;
+    background-color: #00ff00;
     transition: 0.5s;
+    overflow: hidden;
 }
 .seccionBusqueda {
     background-color: rgb(114, 115, 118) ;
@@ -221,9 +223,11 @@ body {
 
 .carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-izquierda {
     left: 0;
+    margin-bottom: 30px;
 }
 .carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-derecha {
     right: 0;
+    margin-bottom: 30px;
 }
 
 .carruselListaReproduccion .contenedorPrincipalListaRepro .flecha-izquierda:hover, 
@@ -246,12 +250,13 @@ body {
     grid-row-start: 1;
     grid-row-end: 1;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 95%;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
+    justify-self: center;
 }
 
 .videoPlay {
@@ -270,10 +275,11 @@ body {
 .cruz {
     position: relative;
     min-width: fit-content;
-    width: 1.8vw;
+    width: 30px;
     box-shadow: none !important;
     display: none;
     cursor: pointer;
+    margin-left: 20px;
 }
 .gridCruz {
     grid-column: 3/3;
@@ -286,10 +292,11 @@ body {
     box-shadow: none !important;
     display: none;
     cursor: pointer;
-    width: 1.5vw;
+    width: 28px;
     background-color: #AD1A1C;
-    padding: 7px;
-    border-radius: 20px;
+    padding: 4px;
+    margin-left: 20px;
+    border-radius: 5px;
     min-width: fit-content;
     overflow: visible;
 }
@@ -422,9 +429,11 @@ body {
 
 .carruselDestacados .contenedorPrincipalDestacados .flecha-izquierda {
     left: 0;
+    margin-bottom: 30px;
 }
 .carruselDestacados .contenedorPrincipalDestacados .flecha-derecha {
     right: 0;
+    margin-bottom: 30px;
 }
 
 /* ---- ---- ---- Carousel  DESTACADOS ---- ---- ---- */
@@ -523,7 +532,7 @@ body {
     background: linear-gradient(to bottom, rgba(89,89,89,1) 0%, rgba(0,0,0,1) 100%);
     width: 90px;
     height: 55px;
-    border-radius: 10px 0 0 0;
+    border-radius: 20px 0 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -598,12 +607,19 @@ body {
     display: grid;
     grid-template-columns: auto 10%;
     gap: 2px;
+    transition: .3s ease all;
 }
 
 .divGrid img {
     width: 13vw;
     border-radius: 5px;
     cursor: pointer;
+}
+.divGrid:hover {
+    transform: scale(1.1);
+    transform-origin: center;
+    z-index: 50;
+    color: rgb(76, 212, 117);
 }
 
 .divGrid button {
@@ -663,6 +679,7 @@ body {
     height: 50px;
     border-radius: 100%;
     cursor: pointer;
+    margin-right: 10%;
 }
 
 .buttonCirc img {
@@ -686,20 +703,22 @@ body {
 }
 
 .buttonVolverAVideos {
+    cursor: pointer;
     display: flex;
-    grid-column-start: 5;
-    background-color:  rgb(114, 115, 118);
+    background-color: #4B4B4D;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    gap: 5px;
     width: fit-content;
     height: fit-content;
-    padding: 10px 10px 10px 10px;
-    border-radius: 50px;
-    cursor: pointer;
-    align-self: center !important;
-    gap: 6px;
+    grid-column-start: 5;
+    justify-self: end;
 }
 
 .buttonVolverAVideos img {
-    width: 10px;
+    width: 8px;
 }
 
 .buttonVolverAVideos span {
@@ -785,7 +804,7 @@ body {
   
 
 .gridListaRepro span {
-    font-family: poppins;
+    font-family: handel;
     font-size: 1rem;
     justify-self: center;
     align-self: center;
@@ -801,6 +820,10 @@ body {
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
+}
+.divLista:hover {
+    box-shadow:  -3px 6px 6px #0000003d,
+    6px -3px 6px #113a133a;
 }
 
 .videoPoster {
@@ -823,7 +846,7 @@ body {
 
 .divLista.seleccionado {
     box-shadow:  -3px 6px 6px #0000003d,
-             6px -3px 6px #113a133a;
+        0px 0px 6px #00ff00;
 }
 
 .divLista.drag {
@@ -1200,9 +1223,9 @@ body {
     left: 0;
     bottom: 60px;
     background: linear-gradient(to bottom, rgba(89,89,89,1) 0%, rgba(0,0,0,1) 100%);
-    width: 90px;
-    height: 60px;
-    border-radius: 0 10px 0 0;
+    width: 70px;
+    height: 40px;
+    border-radius: 0 20px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1215,14 +1238,14 @@ body {
     align-content: center;
     justify-content: center;
     background-color: #000000;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 3px #00FF00;
+    box-shadow: 0px 0px 0px 2px #00FF00;
 }
 
 .bttnTachoBlanco img {
-    width: 25px;
+    width: 16px;
 }
 
 .bttnAgregarListaRojo {
