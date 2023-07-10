@@ -631,13 +631,18 @@ body {
 }
 
 .iconListR {
-   height: fit-content;
-   overflow: hidden;
+   background-color:#AD1A1C;
+   padding: 4px;
+   border-radius: 5px;
+}
+
+.iconListR:hover {
+    background-color: #00FF00;
 }
 
 .iconListR img {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .divGrid div img {

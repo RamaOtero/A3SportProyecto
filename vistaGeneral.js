@@ -16,18 +16,6 @@
     fila.scrollLeft += fila.offsetWidth;
  });
 
- flechaDerecha.addEventListener('click',() =>{
-    var scrollDer = fila.scrollLeft() + fila.width();
-     if(fila.scrollLeft()+fila.width()/2>=fila[0].scrollWidth){
-        scrollDer = fila[0].scrollWidth-fila.width();        
-     }
-     if(fila.scrollLeft()+fila.width()>=fila[0].scrollWidth){
-        scrollDer = 0;        
-     }
-     fila.scrollLeft(scrollDer);
- });
-
-
  flechaDerecha2.addEventListener('click',() =>{
     fila2.scrollLeft += fila2.offsetWidth;
 
@@ -109,10 +97,9 @@ const buttonPlayList2 = document.querySelectorAll("#buttonPlayList");
 
 
 
-buttonPlayList.forEach((buttonPlayList, divGrid) => {
+buttonPlayList.forEach((buttonPlayList) => {
     buttonPlayList.addEventListener("click", (e) => {
-        if(e.target.src.match("./AssetsA3/listareproAgregarBNSVG.svg")) {
-            buttonPlayList.setAttribute("src", "./AssetsA3/listareproBusqueda.svg");
+        if(e.target.parentElement.parentElement.classList.contains("filtroGrayScale")) {
             e.target.parentElement.parentElement.classList.remove("filtroGrayScale");
             Swal.fire({
                 position: 'bottom-start',
@@ -124,8 +111,7 @@ buttonPlayList.forEach((buttonPlayList, divGrid) => {
                 background: '#AD1A1C',
                 color:'#fff'
               })
-        } else if(e.target.src ="./AssetsA3/listareproBusqueda.svg"){
-            buttonPlayList.setAttribute("src", "./AssetsA3/listareproAgregarBNSVG.svg");
+        } else {
             e.target.parentElement.parentElement.classList.add("filtroGrayScale");
             Swal.fire({
                 position: 'bottom-start',
