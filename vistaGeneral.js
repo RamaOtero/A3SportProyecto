@@ -42,7 +42,7 @@
     fila.scrollLeft -= fila.offsetWidth;
     console.log(fila.scrollLeft);
     flechaDerecha.classList.remove("opacity0")
-    if (fila.scrollLeft <= 1452) {
+    if (fila.scrollLeft <= 1500) {
         flechaIzquierda.classList.add("opacity0");
     } else { 
         flechaIzquierda.classList.remove("opacity0");
@@ -52,7 +52,7 @@
  flechaIzquierda2.addEventListener('click',() =>{
     fila2.scrollLeft -= fila2.offsetWidth;
     flechaDerecha2.classList.remove("opacity0")
-    if (fila2.scrollLeft <= 1452) {
+    if (fila2.scrollLeft <= 1500) {
         flechaIzquierda2.classList.add("opacity0");
     } else {
         flechaIzquierda2.classList.remove("opacity0");

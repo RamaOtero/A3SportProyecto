@@ -450,14 +450,13 @@ body {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    padding-left: 10px;
     justify-content: space-between;
 }
 
 .carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel {
     min-width: 20%;
     transition: .3s ease all;
-    padding: 15px;
+    padding: 30px 15px 30px 15px;
 }
 
 .carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel.hover {
