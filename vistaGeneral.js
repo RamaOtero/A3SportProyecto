@@ -14,12 +14,25 @@
 
  flechaDerecha.addEventListener('click',() =>{
     fila.scrollLeft += fila.offsetWidth;
+    console.log(fila.scrollLeft);
+    flechaIzquierda.classList.remove("opacity0");
+    if (fila.scrollLeft >= 2904) {
+        flechaDerecha.classList.add("opacity0")
+    } else {
+        flechaDerecha.classList.remove("opacity0")
+    }
  });
 
  flechaDerecha2.addEventListener('click',() =>{
     fila2.scrollLeft += fila2.offsetWidth;
-
-    })
+    
+    flechaIzquierda2.classList.remove("opacity0");
+    if (fila2.scrollLeft >= 2904) {
+        flechaDerecha2.classList.add("opacity0")
+    } else {
+        flechaDerecha2.classList.remove("opacity0")
+    }
+ });
 
 
  // ---- ---- Event Listener para flecha Izquierda ---- ----
@@ -27,10 +40,23 @@
 
  flechaIzquierda.addEventListener('click',() =>{
     fila.scrollLeft -= fila.offsetWidth;
+    console.log(fila.scrollLeft);
+    flechaDerecha.classList.remove("opacity0")
+    if (fila.scrollLeft <= 1452) {
+        flechaIzquierda.classList.add("opacity0");
+    } else { 
+        flechaIzquierda.classList.remove("opacity0");
+    }
  })
 
  flechaIzquierda2.addEventListener('click',() =>{
     fila2.scrollLeft -= fila2.offsetWidth;
+    flechaDerecha2.classList.remove("opacity0")
+    if (fila2.scrollLeft <= 1452) {
+        flechaIzquierda2.classList.add("opacity0");
+    } else {
+        flechaIzquierda2.classList.remove("opacity0");
+    }
  })
 
 
@@ -87,6 +113,19 @@ cerrarBusqueda.addEventListener('click', () => {
     seccionGrid.classList.add('hidden');
 
 })
+// ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST CARRUSEL ---- ----
+const bttnAgregarPlaylistCarrusel = document.querySelectorAll("#flechaOtraA")
+
+bttnAgregarPlaylistCarrusel.forEach((bttnAgregarPlaylistCarrusel) => {
+    bttnAgregarPlaylistCarrusel.addEventListener("click", (e) => {
+        if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("filtroGrayScale")) {
+            e.target.parentElement.parentElement.parentElement.parentElement.classList.remove("filtroGrayScale")
+        } else {
+            e.target.parentElement.parentElement.parentElement.parentElement.classList.add("filtroGrayScale")
+        }
+    })
+})
+
 
 // ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST ---- ----
 
@@ -101,28 +140,8 @@ buttonPlayList.forEach((buttonPlayList) => {
     buttonPlayList.addEventListener("click", (e) => {
         if(e.target.parentElement.parentElement.classList.contains("filtroGrayScale")) {
             e.target.parentElement.parentElement.classList.remove("filtroGrayScale");
-            Swal.fire({
-                position: 'bottom-start',
-                toast: true,
-                title: 'Eliminado',
-                showConfirmButton: false,
-                timer: 1000,
-                width: '10em',
-                background: '#AD1A1C',
-                color:'#fff'
-              })
         } else {
             e.target.parentElement.parentElement.classList.add("filtroGrayScale");
-            Swal.fire({
-                position: 'bottom-start',
-                toast: true,
-                title: 'Agregado',
-                showConfirmButton: false,
-                timer: 1000,
-                width: '10em', 
-                background: '#008000',
-                color:'#fff' 
-              })
         }
     })
 })

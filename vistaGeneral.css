@@ -825,10 +825,12 @@ body {
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
+    transition: all .2s ease-in-out;
 }
 .divLista:hover {
     box-shadow:  -3px 6px 6px #0000003d,
     6px -3px 6px #113a133a;
+    filter: brightness(40%);
 }
 
 .videoPoster {
