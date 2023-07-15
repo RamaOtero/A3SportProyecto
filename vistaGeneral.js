@@ -12,25 +12,19 @@
  
  // ---- ---- Event Listener para flecha derecha ---- ----
 
- flechaDerecha.addEventListener('click',() =>{
-    fila.scrollLeft += fila.offsetWidth;
-    console.log(fila.scrollLeft);
-    flechaIzquierda.classList.remove("opacity0");
-    if (fila.scrollLeft >= 2904) {
-        flechaDerecha.classList.add("opacity0")
+ flechaDerecha.addEventListener('click', () =>{
+     if ( fila.scrollLeft == fila.scrollWidth - fila.offsetWidth ) {
+        fila.scrollLeft = 0
     } else {
-        flechaDerecha.classList.remove("opacity0")
+        fila.scrollLeft += fila.offsetWidth;
     }
  });
 
- flechaDerecha2.addEventListener('click',() =>{
-    fila2.scrollLeft += fila2.offsetWidth;
-    
-    flechaIzquierda2.classList.remove("opacity0");
-    if (fila2.scrollLeft >= 2904) {
-        flechaDerecha2.classList.add("opacity0")
+ flechaDerecha2.addEventListener('click', () =>{
+     if ( fila2.scrollLeft == fila2.scrollWidth - fila2.offsetWidth ) {
+        fila2.scrollLeft = 0
     } else {
-        flechaDerecha2.classList.remove("opacity0")
+        fila2.scrollLeft += fila2.offsetWidth;
     }
  });
 
@@ -40,23 +34,16 @@
 
  flechaIzquierda.addEventListener('click',() =>{
     fila.scrollLeft -= fila.offsetWidth;
-    console.log(fila.scrollLeft);
-    flechaDerecha.classList.remove("opacity0")
-    if (fila.scrollLeft <= 1500) {
-        flechaIzquierda.classList.add("opacity0");
-    } else { 
-        flechaIzquierda.classList.remove("opacity0");
-    }
+    if (fila.scrollLeft == 0) {
+        fila.scrollLeft = fila.scrollWidth
+    } 
  })
 
  flechaIzquierda2.addEventListener('click',() =>{
     fila2.scrollLeft -= fila2.offsetWidth;
-    flechaDerecha2.classList.remove("opacity0")
-    if (fila2.scrollLeft <= 1500) {
-        flechaIzquierda2.classList.add("opacity0");
-    } else {
-        flechaIzquierda2.classList.remove("opacity0");
-    }
+    if (fila2.scrollLeft == 0) {
+        fila2.scrollLeft = fila2.scrollWidth
+    } 
  })
 
 
@@ -566,6 +553,8 @@ function videoFullScreen() {
             
 }
 
+
+
 function pantallaCompletaToggle() {
     if (document.fullscreenElement == null) {
         seccionVideoVista.requestFullscreen()
@@ -577,14 +566,20 @@ function pantallaCompletaToggle() {
         navControles1.removeEventListener("mouseover", fullScreen);
         controlesVideoLocal.removeEventListener("mouseover", fullScreen)
         video.removeEventListener("mouseover", videoFullScreen)
-        
-        document.exitFullscreen()
+        document.exitFullscreen() 
     }
 }
+
+
   
     pantallaCompleta.forEach((pantallaCompleta) => {
         pantallaCompleta.addEventListener("click", () => {
-            pantallaCompletaToggle()
+            pantallaCompletaToggle(pantallaCompleta)
             pantallaCompleta.classList.toggle("pantallaCompletaActivo");
+            seccionVideoVista.addEventListener("keydown", (seccionVideoVista, pantallaCompleta) => {
+                if (seccionVideoVista.key === "Escape") {
+                    pantallaCompleta.classList.remove("pantallaCompletaActivo");
+                }
+            })
         });
     })
