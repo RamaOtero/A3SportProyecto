@@ -1,4 +1,4 @@
- const fila = document.querySelector('.contenedorCarruselListaRepro');
+const fila = document.querySelector('.contenedorCarruselListaRepro');
  const fila2 = document.querySelector('.contenedorCarruselDestacados');
  const videos1 = document.querySelectorAll('.videoCarruselListaRepro');
  const videos2 = document.querySelectorAll('.video2');
@@ -105,17 +105,84 @@ const bttnAgregarPlaylistCarrusel = document.querySelectorAll("#flechaOtraA")
 
 bttnAgregarPlaylistCarrusel.forEach((bttnAgregarPlaylistCarrusel) => {
     bttnAgregarPlaylistCarrusel.addEventListener("click", (e) => {
+        const agregarAlertaVideoAgregado = () => {
+        const nuevaAlerta = document.createElement("div");
+
+        nuevaAlerta.classList.add("alertaVideoAgregado_Div");
+        nuevaAlerta.classList.add("autoCierre");
+
+        const alerta = `
+            <div class="alertaVideoAgregado" >
+                <div class="alertaVideoAgregado_Simbolo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                      </svg>
+                </div>
+                <div class="alertaVideoAgregado_Texto">
+                    <span>Video agregado</span>
+                </div>
+            </div>
+        `;
+
+        nuevaAlerta.innerHTML = alerta;
+
+        contenedorAlertas.appendChild(nuevaAlerta);
+    setTimeout(() => {
+        nuevaAlerta.classList.add("cerrando")
+    }, 3000);
+    setTimeout(() => {
+        nuevaAlerta.remove();
+    }, 3500);
+
+};
+const agregarAlertaVideoEliminado = () => {
+    const nuevaAlerta = document.createElement("div");
+
+    nuevaAlerta.classList.add("alertaVideoEliminado_Div");
+    nuevaAlerta.classList.add("autoCierre");
+
+    const alerta = `
+        <div class="alertaVideoEliminado" >
+            <div class="alertaVideoEliminado_Simbolo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+            </div>
+            <div class="alertaVideoEliminado_Texto">
+                <span>Video eliminado</span>
+            </div>
+        </div>
+    `;
+
+    nuevaAlerta.innerHTML = alerta;
+
+    contenedorAlertas.appendChild(nuevaAlerta);
+setTimeout(() => {
+    nuevaAlerta.classList.add("cerrando");
+}, 3000);
+setTimeout(() => {
+    nuevaAlerta.remove();
+}, 3500);
+};
         if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("filtroGrayScale")) {
             e.target.parentElement.parentElement.parentElement.parentElement.classList.remove("filtroGrayScale")
+            agregarAlertaVideoEliminado()
         } else {
             e.target.parentElement.parentElement.parentElement.parentElement.classList.add("filtroGrayScale")
+            agregarAlertaVideoAgregado()
         }
     })
 })
 
 
 // ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST ---- ----
+const contenedorAlertas = document.querySelector("#contenedorAlertas");
 
+
+
+
+
+const alertaVideoAgregado = document.querySelector("#alertaVideoAgregado")
 const buttonPlayList = document.querySelectorAll("#buttonPlayListIMG");
 let srcButtonPlayList = document.querySelectorAll("#buttonPlayListIMG").src;
 const divGrid = document.querySelectorAll('.divGrid');
@@ -125,13 +192,78 @@ const buttonPlayList2 = document.querySelectorAll("#buttonPlayList");
 
 buttonPlayList.forEach((buttonPlayList) => {
     buttonPlayList.addEventListener("click", (e) => {
+        const agregarAlertaVideoAgregado = () => {
+            const nuevaAlerta = document.createElement("div");
+
+            nuevaAlerta.classList.add("alertaVideoAgregado_Div");
+            nuevaAlerta.classList.add("autoCierre");
+
+            const alerta = `
+                <div class="alertaVideoAgregado" >
+                    <div class="alertaVideoAgregado_Simbolo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-check-lg" viewBox="0 0 16 16">
+                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                          </svg>
+                    </div>
+                    <div class="alertaVideoAgregado_Texto">
+                        <span>Video agregado</span>
+                    </div>
+                </div>
+            `;
+
+            nuevaAlerta.innerHTML = alerta;
+
+            contenedorAlertas.appendChild(nuevaAlerta);
+        setTimeout(() => {
+            nuevaAlerta.classList.add("cerrando")
+        }, 3000);
+        setTimeout(() => {
+            nuevaAlerta.remove();
+        }, 3500);
+
+	};
+    const agregarAlertaVideoEliminado = () => {
+        const nuevaAlerta = document.createElement("div");
+
+        nuevaAlerta.classList.add("alertaVideoEliminado_Div");
+        nuevaAlerta.classList.add("autoCierre");
+
+        const alerta = `
+            <div class="alertaVideoEliminado" >
+                <div class="alertaVideoEliminado_Simbolo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+                </div>
+                <div class="alertaVideoEliminado_Texto">
+                    <span>Video eliminado</span>
+                </div>
+            </div>
+        `;
+
+        nuevaAlerta.innerHTML = alerta;
+
+        contenedorAlertas.appendChild(nuevaAlerta);
+    setTimeout(() => {
+        nuevaAlerta.classList.add("cerrando");
+    }, 3000);
+    setTimeout(() => {
+        nuevaAlerta.remove();
+    }, 3500);
+};
+
         if(e.target.parentElement.parentElement.classList.contains("filtroGrayScale")) {
             e.target.parentElement.parentElement.classList.remove("filtroGrayScale");
+
+            agregarAlertaVideoEliminado();
         } else {
             e.target.parentElement.parentElement.classList.add("filtroGrayScale");
+            agregarAlertaVideoAgregado();
         }
     })
 })
+
+
 
 
 // ---- ----  VIDEO GRID BUSQUEDA  ---- ----

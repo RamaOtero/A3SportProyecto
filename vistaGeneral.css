@@ -595,7 +595,7 @@ body {
     background-color: #000000;
     width: 100vw;
     height: 90vh;
-    padding: 100px 10% 100px 10%;
+    padding: 60px 10% 100px 10%;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto auto auto;
     gap: 30px;
@@ -1378,9 +1378,176 @@ body {
 .swal2-popup {
     font-family: Handel;
   }
+/*  ---- ---- Alerta Lista de Repro---- ----  */
+
+.alertasListaRepro {
+ position: fixed;
+ right:0;
+ bottom: 0;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ overflow: hidden;
+ z-index: 5000;
+}
+
+.alertaVideoAgregado_Div.autoCierre::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 255, 0, 0.5);
+    position: absolute;
+    top: 0;
+    animation-name: autoCierre;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.alertaVideoAgregado_Div {
+    animation-name: apertura;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3000;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+
+.alertaVideoAgregado {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.alertaVideoAgregado_Simbolo {
+    background-color: #289130;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+    
+}
+
+.alertaVideoAgregado_Texto {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 5px 0;
+}
+
+.alertaVideoAgregado_Texto span {
+    font-family: Handel;
+    color: #000000;
+}
+.alertaVideoEliminado_Div.autoCierre::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    animation-name: autoCierre;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+.alertaVideoEliminado_Div {
+    animation-name: apertura;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3000;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+    padding-right: 10px;
+}
+
+.alertaVideoEliminado {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.alertaVideoEliminado_Simbolo {
+    background-color: #912828;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+    
+}
+
+.alertaVideoEliminado_Texto {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 5px 0;
+}
+
+.alertaVideoEliminado_Texto span {
+    font-family: Handel;
+    color: #000000;
+}
 
 
 /*  ---- ---- ANIMACION ---- ----  */
+
+@keyframes autoCierre {
+    from {
+        width: 100%;
+
+    } to {
+        width: 0%;
+    }
+
+}
+
+@keyframes apertura {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.alertaVideoAgregado_Div.cerrando {
+    animation-name: cierre;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+.alertaVideoEliminado_Div.cerrando {
+    animation-name: cierre;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cierre {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(120%);
+    }
+}
+
 
 @keyframes fluido {
     0% { background-position: 0 50% }
