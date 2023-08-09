@@ -138,7 +138,7 @@ body {
 
 .mainVideosCarruseles {
     background-color: rgb(114, 115, 118);
-    height: 80vh;
+    height: 100%;
 }
 
 .contenedorCarrusel {
@@ -151,6 +151,8 @@ body {
     height: 100%;
     position: relative;
 }
+
+
 /* ---- ---- ---- CONTENEDOR TITULO y CONTROLES ---- ---- ---- */
 
 .tituloControlesCarrusel {
@@ -333,6 +335,7 @@ body {
     min-width: 20%;
     transition: .3s ease all;
     padding: 30px 15px 30px 15px;
+    position: relative;
 }
 .carruselListaReproduccion .contenedorPrincipalListaRepro .contenedorCarruselListaRepro .carruselListaRepro .videoCarrusel.hover {
     transform: scale(1.1);
@@ -451,6 +454,7 @@ body {
     flex-wrap: nowrap;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .carruselDestacados .contenedorPrincipalDestacados .contenedorCarruselDestacados .carrouselDestacados .videoCarrusel {
@@ -526,7 +530,7 @@ body {
 .fondoCarpeta {
     position: absolute;
     right: 0%;
-    bottom: 0%;
+    bottom: 0;
     background: rgb(0,0,0);
     background: linear-gradient(to bottom, rgba(89,89,89,1) 0%, rgba(0,0,0,1) 100%);
     width: 90px;
@@ -1381,7 +1385,7 @@ body {
 /*  ---- ---- Alerta Lista de Repro---- ----  */
 
 .alertasListaRepro {
- position: fixed;
+ position: absolute;
  right:0;
  bottom: 0;
  display: flex;
@@ -1405,17 +1409,15 @@ body {
 }
 
 .alertaVideoAgregado_Div {
-    animation-name: apertura;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 3000;
     overflow: hidden;
-    position: relative;
-    margin-bottom: 10px;
-    padding-right: 10px;
+    position: absolute;
+    right: 18%;
+    top: 28%;
 }
 
 .alertaVideoAgregado {
@@ -1444,7 +1446,8 @@ body {
 
 .alertaVideoAgregado_Texto span {
     font-family: Handel;
-    color: #000000;
+    color: black !important;
+    z-index: 100;
 }
 .alertaVideoEliminado_Div.autoCierre::after {
     content: "";
@@ -1460,17 +1463,15 @@ body {
 }
 
 .alertaVideoEliminado_Div {
-    animation-name: apertura;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 3000;
     overflow: hidden;
     position: relative;
-    margin-bottom: 10px;
-    padding-right: 10px;
+    position: absolute;
+    right: 18%;
+    top: 28%;
 }
 
 .alertaVideoEliminado {
@@ -1499,7 +1500,7 @@ body {
 
 .alertaVideoEliminado_Texto span {
     font-family: Handel;
-    color: #000000;
+    color: black !important;
 }
 
 
@@ -1615,3 +1616,7 @@ body {
     }
   }
   
+  .scale-up-center {
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}

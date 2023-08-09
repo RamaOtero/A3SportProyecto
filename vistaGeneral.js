@@ -2,7 +2,7 @@ const fila = document.querySelector('.contenedorCarruselListaRepro');
  const fila2 = document.querySelector('.contenedorCarruselDestacados');
  const videos1 = document.querySelectorAll('.videoCarruselListaRepro');
  const videos2 = document.querySelectorAll('.video2');
- const videos = document.querySelectorAll('.videoCarrusel');
+ const videosA = document.querySelectorAll('.videoCarrusel');
 
  const flechaIzquierda = document.getElementById('flecha-izquierda');
  const flechaDerecha = document.getElementById('flecha-derecha');
@@ -49,7 +49,7 @@ const fila = document.querySelector('.contenedorCarruselListaRepro');
 
  // ---- ---- Hover ---- ----
 
- videos.forEach((video) => {
+ videosA.forEach((video) => {
     video.addEventListener('mouseenter', (e) => {
         const elemento = e.currentTarget;
         setTimeout(() => {
@@ -60,7 +60,7 @@ const fila = document.querySelector('.contenedorCarruselListaRepro');
 });
 
 fila.addEventListener('mouseleave', () => {
-    videos.forEach(video => video.classList.remove ('hover'));
+    videosA.forEach(video => video.classList.remove ('hover'));
 });
 
 
@@ -102,12 +102,19 @@ cerrarBusqueda.addEventListener('click', () => {
 })
 // ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST CARRUSEL ---- ----
 const bttnAgregarPlaylistCarrusel = document.querySelectorAll("#flechaOtraA")
+const videoCarrusel = document.querySelectorAll(".videoCarrusel");
+
+
 
 bttnAgregarPlaylistCarrusel.forEach((bttnAgregarPlaylistCarrusel) => {
     bttnAgregarPlaylistCarrusel.addEventListener("click", (e) => {
-        const agregarAlertaVideoAgregado = () => {
-        const nuevaAlerta = document.createElement("div");
+        
+        let divAlerta = e.target.parentElement.parentElement.parentElement.parentElement
+    
 
+        const agregarAlertaVideoAgregado = () => {
+            const nuevaAlerta = document.createElement("div");
+            
         nuevaAlerta.classList.add("alertaVideoAgregado_Div");
         nuevaAlerta.classList.add("autoCierre");
 
@@ -126,13 +133,11 @@ bttnAgregarPlaylistCarrusel.forEach((bttnAgregarPlaylistCarrusel) => {
 
         nuevaAlerta.innerHTML = alerta;
 
-        contenedorAlertas.appendChild(nuevaAlerta);
-    setTimeout(() => {
-        nuevaAlerta.classList.add("cerrando")
-    }, 3000);
+        divAlerta.appendChild(nuevaAlerta);
+   
     setTimeout(() => {
         nuevaAlerta.remove();
-    }, 3500);
+    }, 3000);
 
 };
 const agregarAlertaVideoEliminado = () => {
@@ -142,7 +147,7 @@ const agregarAlertaVideoEliminado = () => {
     nuevaAlerta.classList.add("autoCierre");
 
     const alerta = `
-        <div class="alertaVideoEliminado" >
+        <div class="alertaVideoEliminado scale-up-center" >
             <div class="alertaVideoEliminado_Simbolo">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-x" viewBox="0 0 16 16">
             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -156,30 +161,26 @@ const agregarAlertaVideoEliminado = () => {
 
     nuevaAlerta.innerHTML = alerta;
 
-    contenedorAlertas.appendChild(nuevaAlerta);
-setTimeout(() => {
-    nuevaAlerta.classList.add("cerrando");
-}, 3000);
+    divAlerta.appendChild(nuevaAlerta);
+
 setTimeout(() => {
     nuevaAlerta.remove();
-}, 3500);
+}, 3000);
 };
-        if (e.target.parentElement.parentElement.parentElement.parentElement.classList.contains("filtroGrayScale")) {
-            e.target.parentElement.parentElement.parentElement.parentElement.classList.remove("filtroGrayScale")
+        if (e.target.parentNode.parentNode.parentNode.nextElementSibling.classList.contains("filtroGrayScale")) {
+            e.target.parentNode.parentNode.parentNode.nextElementSibling.classList.remove("filtroGrayScale")
             agregarAlertaVideoEliminado()
         } else {
-            e.target.parentElement.parentElement.parentElement.parentElement.classList.add("filtroGrayScale")
+            e.target.parentNode.parentNode.parentNode.nextElementSibling.classList.add("filtroGrayScale")
             agregarAlertaVideoAgregado()
+            console.log(e.target.parentNode.parentNode.parentNode.nextElementSibling)
         }
     })
 })
 
 
-// ---- ---- CAMBIO DE COLOR AGREGAR PLAYLIST ---- ----
+// ---- ---- CAMBIO DE COLOR GRID AGREGAR PLAYLIST ---- ----
 const contenedorAlertas = document.querySelector("#contenedorAlertas");
-
-
-
 
 
 const alertaVideoAgregado = document.querySelector("#alertaVideoAgregado")
@@ -189,12 +190,12 @@ const divGrid = document.querySelectorAll('.divGrid');
 const buttonPlayList2 = document.querySelectorAll("#buttonPlayList");
 
 
-
 buttonPlayList.forEach((buttonPlayList) => {
     buttonPlayList.addEventListener("click", (e) => {
+        
         const agregarAlertaVideoAgregado = () => {
             const nuevaAlerta = document.createElement("div");
-
+            
             nuevaAlerta.classList.add("alertaVideoAgregado_Div");
             nuevaAlerta.classList.add("autoCierre");
 
@@ -214,12 +215,13 @@ buttonPlayList.forEach((buttonPlayList) => {
             nuevaAlerta.innerHTML = alerta;
 
             contenedorAlertas.appendChild(nuevaAlerta);
+            
         setTimeout(() => {
             nuevaAlerta.classList.add("cerrando")
         }, 3000);
         setTimeout(() => {
             nuevaAlerta.remove();
-        }, 3500);
+        }, 3100);
 
 	};
     const agregarAlertaVideoEliminado = () => {
@@ -254,11 +256,12 @@ buttonPlayList.forEach((buttonPlayList) => {
 
         if(e.target.parentElement.parentElement.classList.contains("filtroGrayScale")) {
             e.target.parentElement.parentElement.classList.remove("filtroGrayScale");
-
+            
             agregarAlertaVideoEliminado();
         } else {
             e.target.parentElement.parentElement.classList.add("filtroGrayScale");
             agregarAlertaVideoAgregado();
+            
         }
     })
 })
@@ -333,7 +336,7 @@ Sortable.create(gridListaRepro, {
 const video = document.querySelector(".videoMain");
 const playButton = document.querySelectorAll('.playVideo');
 const imgPlayButton = document.querySelectorAll('.imgPlayButton');
-const progressBar = document.querySelectorAll('.progressVideo');
+const progressBar1 = document.querySelectorAll('.progressVideo');
 const timestamp = document.querySelector(".timestamp")
 const volverAVideosBttn = document.querySelectorAll(".volverAVideosVista");
 const videoVentana = document.querySelector(".videoVentana")
@@ -685,7 +688,11 @@ function videoFullScreen() {
             
 }
 
+var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+var fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled;
 
+console.log('enabled:' + fullscreenEnabled);
+console.log('element:' + fullscreenElement);
 
 function pantallaCompletaToggle() {
     if (document.fullscreenElement == null) {
@@ -703,15 +710,51 @@ function pantallaCompletaToggle() {
 }
 
 
+document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement = null) {
+        console.log("fullscreen")
+    } else {
+        console.log("NONONONONOfullscreen")
+    }
+})
   
     pantallaCompleta.forEach((pantallaCompleta) => {
         pantallaCompleta.addEventListener("click", () => {
             pantallaCompletaToggle(pantallaCompleta)
-            pantallaCompleta.classList.toggle("pantallaCompletaActivo");
-            seccionVideoVista.addEventListener("keydown", (seccionVideoVista, pantallaCompleta) => {
-                if (seccionVideoVista.key === "Escape") {
-                    pantallaCompleta.classList.remove("pantallaCompletaActivo");
-                }
-            })
+         
         });
     })
+
+    function CurrentlyInFullScreen() {
+        return (document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement);
+    }
+
+    function getCurrentElementInFullScreen(){
+        if (document.fullscreenElement)
+            return document.fullscreenElement;
+        if (document.webkitFullscreenElement)
+            return document.webkitFullscreenElement;
+        if (document.mozFullScreenElement)
+            return document.mozFullScreenElement;
+        if (document.msFullscreenElement)
+            return document.msFullscreenElement;
+            if (getCurrentElementInFullScreen() == null) { 
+                pantallaCompleta.classList.add("pantallaCompletaActivo");
+            } else {
+                pantallaCompleta.classList.remove("pantallaCompletaActivo");
+            }
+        return null;
+    }
+
+    function cambioPantallaCompleta() {
+        if (CurrentlyInFullScreen()){
+            console.log("Se ha cambiado a pantalla Normal");
+          
+        }
+        else {
+            console.log("Se ha cambiado a pantalla completa");
+        }
+    }

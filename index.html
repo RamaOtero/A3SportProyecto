@@ -8,9 +8,12 @@
     <script src="https://kit.fontawesome.com/95d78b0e1a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./vistaGeneral.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
     <title>A3 SPORT</title>
 </head>
 <body class="body">
@@ -287,7 +290,7 @@
                 </div>
             </div>
 
-            <!--    SEGUNDO CARROUSEL         -->
+            <!--    CARRUSEL DESTACADOS         -->
 
             <div class="carruselDestacados contenedorCarrusel">
                 <div class="tituloControlesCarrusel">
@@ -524,12 +527,7 @@
                     </div>
                     <button role="button" id="flecha-derecha2" class="flecha-derecha sinborde"><img class="flechasimg" src="/AssetsA3/flechaDerSVG.svg" alt="flechaRight"/></button>
                 </div>
-                <!--    BOTON CARPETA        -->
-                <div class="fondoCarpeta">
-                    <button id="bttnCarpetaLocal" class="sinborde">
-                        <img class="buttonCarpeta"  src="./AssetsA3/carpeta.svg">
-                    </button>
-                </div>
+                
 
                 <!--   ULTIMOS VISTOS        -->
                 <div class="ultimosVideos">
@@ -538,7 +536,27 @@
                 </div>
 
             </div>
-        </section>
+
+             <!--    PROBANDO API CARROUSEL         -->
+
+             <div class="carruselDestacados contenedorCarrusel">
+                <div class="tituloControlesCarrusel">
+                    <div class="contenedortituloControlesCarrusel">
+                        <h3> Prueba API </h3>
+                        <a><img src="./AssetsA3/masSVG.svg"></a>
+                    </div>
+                </div>
+                <div class="contenedorPrincipalDestacados">
+                    <button role="button" id="flecha-izquierda2" class="flecha-izquierda sinborde"><img class="flechasimg" src="/AssetsA3/flechaIzqSVG.svg" alt="flechaLeft"/></button>
+                    <div class="contenedorCarruselDestacados" id="carousel-2">
+                        <div id="corousel-trending" class="carrouselDestacados">
+            
+                        </div>
+                    </div>
+                    <button role="button" id="flecha-derecha2" class="flecha-derecha sinborde"><img class="flechasimg" src="/AssetsA3/flechaDerSVG.svg" alt="flechaRight"/></button>
+                </div>
+             
+         </section>
         <!--    VISTA BUSQUEDA         -->
 
         <section class="seccionGrid hidden" id="seccionGrid">
@@ -895,11 +913,17 @@
                 </div>
             </div> -->
         </div>
+        <!--    BOTON CARPETA        -->
+        <div class="fondoCarpeta">
+            <button id="bttnCarpetaLocal" class="sinborde">
+                <img class="buttonCarpeta"  src="./AssetsA3/carpeta.svg">
+            </button>
+        </div>
     </main>
     <footer>
 
     </footer>
-    <script src="sweetalert2.all.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/95d78b0e1a.js" crossorigin="anonymous"></script>
     <script src="vistaGeneral.js"></script>
@@ -915,6 +939,37 @@
         <script>
             AOS.init();
           </script>
+          <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+          <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+          <script src="video.js"></script>
+          <script>
+              var tag = document.createElement('script');
+              
+              
+          
+              tag.src = "https://www.youtube.com/iframe_api?modestbranding=1&controls=0";
+              var firstScriptTag = document.getElementsByTagName('script')[0];
+              firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+              function onYouTubeIframeAPIReady() {
+                  window.player = new YT.Player('yt-video', {
+                      height: $('#yt-video').height(),
+                      width: $('#yt-video').width(),
+                      playerVars: {
+                          modestbranding: 1,
+                          controls: 0,
+                          showinfo: 0
+                      },
+                      events: {
+                      //'onStateChange': onPlayerStateChange
+                      }
+                  });
+                  
+                  }
+                      googleApiClientReady();
+                      setTimeout(loadTrendingFootball,2000);
+                      setTimeout(loadSevenTrendingVideos,3000);
+          </script>
+         
 </body>
 
 </html>
